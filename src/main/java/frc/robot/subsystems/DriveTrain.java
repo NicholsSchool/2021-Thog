@@ -29,7 +29,7 @@ public class DriveTrain extends SubsystemBase {
         rMaster = new WPI_TalonFX(RobotMap.RIGHT_MASTER_ID);
         rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
 
-        shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_CHANNEL);
+        shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
         Robot.state.put("HIGH GEAR", true);
         shifter.set(RobotMap.HIGH_GEAR);
 
