@@ -6,6 +6,8 @@ public class RobotMap {
     public static final int BALL_LIFT_ID = 44;
     public static final int SHOOTER_ID = 25;
 
+    public static final double BALL_LIFT_SPEED = 0.5;
+
     public static final double SHOOT_VELOCITY = 0.5;
 
     public static final int LEFT_MASTER_ID = 20;
