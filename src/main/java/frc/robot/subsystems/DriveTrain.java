@@ -2,23 +2,25 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class DriveTrain extends SubsystemBase {
 
     private WPI_TalonFX lMaster;
     private WPI_TalonFX lSlav;
+
     private WPI_TalonFX rMaster;
     private WPI_TalonFX rSlav;
 
+    public static Solenoid shifterSolenoid;
+
     private DifferentialDrive drive;
 
-    /**
-     * new DriveTrain instance is created.
-     */
     public DriveTrain() {
 
         lMaster = new WPI_TalonFX(RobotMap.LEFT_MASTER_ID);
@@ -26,6 +28,10 @@ public class DriveTrain extends SubsystemBase {
 
         rMaster = new WPI_TalonFX(RobotMap.RIGHT_MASTER_ID);
         rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
+
+        shifterSolenoid = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_CHANNEL);
+        Robot.state.put("GEAR", "HIGH");
+        shifterSolenoid.set(RobotMap.HIGH_GEAR);
 
         lMaster.configFactoryDefault();
         lSlav.configFactoryDefault();
@@ -50,5 +56,17 @@ public class DriveTrain extends SubsystemBase {
     public void stop() {
         lMaster.stopMotor();
         rMaster.stopMotor();
+    }
+
+    public void gearshift() {
+        if (Robot.state.get("GEAR") == "LOW" && shifterSolenoid.get() == RobotMap.LOW_GEAR) {
+            Robot.state.put("GEAR", "HIGH");
+            shifterSolenoid.set(RobotMap.HIGH_GEAR);
+        }
+        else if (Robot.state.get("GEAR") == "HIGH" && shifterSolenoid.get() == RobotMap.HIGH_GEAR) {
+            Robot.state.put("GEAR", "LOW");
+            shifterSolenoid.set(RobotMap.LOW_GEAR);
+        }
+
     }
 }
