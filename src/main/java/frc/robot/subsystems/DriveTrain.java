@@ -11,14 +11,12 @@ public class DriveTrain extends SubsystemBase {
 
     private WPI_TalonFX lMaster;
     private WPI_TalonFX lSlav;
+    
     private WPI_TalonFX rMaster;
     private WPI_TalonFX rSlav;
 
     private DifferentialDrive drive;
 
-    /**
-     * new DriveTrain instance is created.
-     */
     public DriveTrain() {
 
         lMaster = new WPI_TalonFX(RobotMap.LEFT_MASTER_ID);
