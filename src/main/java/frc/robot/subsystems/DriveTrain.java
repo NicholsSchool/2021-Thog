@@ -59,14 +59,13 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void gearshift() {
-        if (Robot.state.get("GEAR") == "LOW" && shifterSolenoid.get() == RobotMap.LOW_GEAR) {
+        if (Robot.state.get("GEAR") == "LOW") {
             Robot.state.put("GEAR", "HIGH");
             shifterSolenoid.set(RobotMap.HIGH_GEAR);
         }
-        else if (Robot.state.get("GEAR") == "HIGH" && shifterSolenoid.get() == RobotMap.HIGH_GEAR) {
+        else if (Robot.state.get("GEAR") == "HIGH") {
             Robot.state.put("GEAR", "LOW");
             shifterSolenoid.set(RobotMap.LOW_GEAR);
         }
-
     }
 }
