@@ -9,20 +9,20 @@ import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
 
-    public static DriveTrain driveTrain;
-    public static Shooter shooter;
-    public static Intake intake;
     public static BallLift ballLift;
+    public static DriveTrain driveTrain;
+    public static Intake intake;
+    public static Shooter shooter;
 
     public static XboxController c0;
     public static XboxController c1;
 
     public RobotContainer() {
         
-        driveTrain = new DriveTrain();
-        shooter = new Shooter();
-        intake = new Intake();
         ballLift = new BallLift();
+        driveTrain = new DriveTrain();
+        intake = new Intake();
+        shooter = new Shooter();
 
         configureButtonBindings();
     }
