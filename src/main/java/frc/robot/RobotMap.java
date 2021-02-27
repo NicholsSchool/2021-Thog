@@ -22,7 +22,7 @@ public class RobotMap {
 
     public static final int PCM_CAN_ID = 51;
     
-    public static final int SHIFTER_CHANNEL = 0;
+    public static final int SHIFTER_SOLENOID_CHANNEL = 0;
     
     public static final boolean HIGH_GEAR = true;
     public static final boolean LOW_GEAR = !HIGH_GEAR;

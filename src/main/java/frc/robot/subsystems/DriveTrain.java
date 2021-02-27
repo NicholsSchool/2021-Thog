@@ -17,7 +17,7 @@ public class DriveTrain extends SubsystemBase {
     private WPI_TalonFX rMaster;
     private WPI_TalonFX rSlav;
 
-    public static Solenoid shifterSolenoid;
+    public static Solenoid shifter;
 
     private DifferentialDrive drive;
 
@@ -29,9 +29,9 @@ public class DriveTrain extends SubsystemBase {
         rMaster = new WPI_TalonFX(RobotMap.RIGHT_MASTER_ID);
         rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
 
-        shifterSolenoid = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_CHANNEL);
-        Robot.state.put("GEAR", "HIGH");
-        shifterSolenoid.set(RobotMap.HIGH_GEAR);
+        shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
+        Robot.state.put("HIGH GEAR", true);
+        shifter.set(RobotMap.HIGH_GEAR);
 
         lMaster.configFactoryDefault();
         lSlav.configFactoryDefault();
@@ -46,27 +46,29 @@ public class DriveTrain extends SubsystemBase {
         lSlav.follow(lMaster);
         rSlav.follow(rMaster);
 
-        drive = new DifferentialDrive(new SpeedControllerGroup(lMaster), new SpeedControllerGroup(rMaster));
+        drive = new DifferentialDrive(lMaster, rMaster);
     }
 
     public void move(double leftSpeed, double rightSpeed) {
+
         drive.tankDrive(leftSpeed, rightSpeed);
     }
 
     public void stop() {
+
         lMaster.stopMotor();
         rMaster.stopMotor();
     }
 
     public void gearshift() {
-        if (Robot.state.get("GEAR") == "LOW" && shifterSolenoid.get() == RobotMap.LOW_GEAR) {
-            Robot.state.put("GEAR", "HIGH");
-            shifterSolenoid.set(RobotMap.HIGH_GEAR);
-        }
-        else if (Robot.state.get("GEAR") == "HIGH" && shifterSolenoid.get() == RobotMap.HIGH_GEAR) {
-            Robot.state.put("GEAR", "LOW");
-            shifterSolenoid.set(RobotMap.LOW_GEAR);
-        }
 
+        if (!((boolean) Robot.state.get("HIGH GEAR"))) {
+            Robot.state.put("HIGH GEAR", true);
+            shifter.set(RobotMap.HIGH_GEAR);
+        }
+        else if (((boolean) Robot.state.get("HIGH GEAR"))) {
+            Robot.state.put("HIGH GEAR", false);
+            shifter.set(RobotMap.LOW_GEAR);
+        }
     }
 }
