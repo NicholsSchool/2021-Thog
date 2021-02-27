@@ -1,13 +1,14 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.SparkMax;
+import com.revrobotics.CANSparkMax;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class BallLift {
-    private SparkMax ballLift;
+public class BallLift extends SubsystemBase{
+    private CANSparkMax ballLift;
     private double speed;
 
     public BallLift(){
-        ballLift = new SparkMax();      
+        ballLift = new CANSparkMax (44, null);
     }
 
     public void lift(){
