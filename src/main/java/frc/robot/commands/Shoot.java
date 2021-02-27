@@ -16,7 +16,10 @@ public class Shoot extends CommandBase {
     }
 
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+
+        RobotContainer.shooter.stop();
+    }
 
     @Override
     public boolean isFinished() {
