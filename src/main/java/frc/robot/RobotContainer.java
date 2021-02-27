@@ -3,10 +3,12 @@ package frc.robot;
 import frc.robot.util.XboxController;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
 
     public static DriveTrain driveTrain;
+    public static Intake intake;
 
     public static XboxController c0;
     public static XboxController c1;
@@ -14,6 +16,7 @@ public class RobotContainer {
     public RobotContainer() {
         
         driveTrain = new DriveTrain();
+        intake = new Intake();
 
         configureButtonBindings();
     }
