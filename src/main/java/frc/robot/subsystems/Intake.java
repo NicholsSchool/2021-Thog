@@ -24,7 +24,7 @@ public class Intake extends SubsystemBase {
         rIntake.restoreFactoryDefaults();
 
         intakeSolenoid = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.INTAKE_SOLENOID_CHANNEL);
-        Robot.state.put("INTAKE", "DOWN");
+        Robot.state.put("INTAKE IS DOWN", true);
         intakeSolenoid.set(RobotMap.INTAKE_DOWN);
 
         /*
@@ -42,7 +42,7 @@ public class Intake extends SubsystemBase {
         rIntake.stopMotor();
     }
 
-    public void setPosition(boolean setDown) {
-        intakeSolenoid.set(setDown);
+    public void setPosition(boolean isSetDown) {
+        intakeSolenoid.set(isSetDown);
     }
 }

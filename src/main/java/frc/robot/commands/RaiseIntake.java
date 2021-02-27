@@ -15,7 +15,7 @@ public class RaiseIntake extends CommandBase {
     @Override
     public void initialize() {
 
-        Robot.state.put("INTAKE", "UP");
+        Robot.state.put("INTAKE IS DOWN", false);
         RobotContainer.intake.setPosition(RobotMap.INTAKE_UP);
     }
 
