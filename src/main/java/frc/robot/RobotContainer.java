@@ -4,11 +4,13 @@ import frc.robot.util.XboxController;
 import frc.robot.commands.Drive;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
 
     public static DriveTrain driveTrain;
     public static Shooter shooter;
+    public static Intake intake;
 
     public static XboxController c0;
     public static XboxController c1;
@@ -17,6 +19,7 @@ public class RobotContainer {
         
         driveTrain = new DriveTrain();
         shooter = new Shooter();
+        intake = new Intake();
 
         configureButtonBindings();
     }

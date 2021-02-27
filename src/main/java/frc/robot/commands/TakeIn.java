@@ -2,27 +2,27 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
+import frc.robot.RobotMap;
 
-public class Drive extends CommandBase {
+public class TakeIn extends CommandBase {
+    
+    public TakeIn() {
 
-    public Drive() {
-
-        addRequirements(RobotContainer.driveTrain);
+        addRequirements(RobotContainer.intake);
     }
 
     @Override
     public void initialize() {}
-
+    
     @Override
     public void execute() {
-
-        RobotContainer.driveTrain.move(RobotContainer.c0.getLeftY(), RobotContainer.c0.getRightY());
+        RobotContainer.intake.move(RobotMap.INTAKE_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
 
-        RobotContainer.driveTrain.stop();
+        RobotContainer.intake.stop();
     }
 
     @Override
