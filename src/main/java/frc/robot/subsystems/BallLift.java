@@ -8,7 +8,7 @@ public class BallLift extends SubsystemBase{
     private double speed;
 
     public BallLift(){
-        ballLift = new CANSparkMax (44, null);
+        ballLift = new CANSparkMax(44, null);
     }
 
     public void lift(){
