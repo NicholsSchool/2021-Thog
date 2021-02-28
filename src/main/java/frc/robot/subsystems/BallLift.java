@@ -11,6 +11,8 @@ public class BallLift extends SubsystemBase {
     public BallLift() {
 
         ballLift = new CANSparkMax(RobotMap.BALL_LIFT_ID, null);
+
+        ballLift.restoreFactoryDefaults();
     }
 
     public void set(double speed) {
