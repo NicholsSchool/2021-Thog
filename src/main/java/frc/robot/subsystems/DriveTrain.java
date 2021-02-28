@@ -29,8 +29,8 @@ public class DriveTrain extends SubsystemBase {
         rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
 
         shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
-        Robot.state.put("IS IN HIGH GEAR", true);
-        shifter.set(RobotMap.HIGH_GEAR);
+        Robot.state.put("IS IN HIGH GEAR", false);
+        shifter.set(RobotMap.LOW_GEAR);
 
         lMaster.configFactoryDefault();
         lSlav.configFactoryDefault();
