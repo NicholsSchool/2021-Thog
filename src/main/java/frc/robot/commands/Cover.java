@@ -4,26 +4,29 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class Shoot extends CommandBase {
+public class Cover extends CommandBase {
     
     @Override
-    public void initialize() {}
+    public void initialize() {
+
+        addRequirements(RobotContainer.hood);
+    }
 
     @Override
     public void execute() {
         
-        RobotContainer.shooter.set(RobotMap.SHOOT_SPEED);
+        RobotContainer.hood.set(RobotMap.HOOD_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-
-        RobotContainer.shooter.stop();
+        
+        RobotContainer.hood.stop();
     }
 
     @Override
     public boolean isFinished() {
-
+        
         return false;
     }
 }

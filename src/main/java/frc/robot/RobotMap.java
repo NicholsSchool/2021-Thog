@@ -41,5 +41,10 @@ public class RobotMap {
     // Shooter
     public static final int SHOOTER_ID = 25;
 
-    public static final double SHOOT_VELOCITY = 0.5;
+    public static final double SHOOT_SPEED = 0.5;
+
+    // Hood
+    public static final int HOOD_ID = 45;
+
+    public static final double HOOD_SPEED = 0.1;
 }

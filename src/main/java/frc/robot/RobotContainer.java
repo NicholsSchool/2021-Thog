@@ -12,6 +12,7 @@ public class RobotContainer {
 
     public static BallLift ballLift;
     public static DriveTrain driveTrain;
+    public static Hood hood;
     public static Intake intake;
     public static Revolver revolver;
     public static Shooter shooter;
@@ -23,6 +24,7 @@ public class RobotContainer {
         
         ballLift = new BallLift();
         driveTrain = new DriveTrain();
+        hood = new Hood();
         intake = new Intake();
         revolver = new Revolver();
         shooter = new Shooter();
