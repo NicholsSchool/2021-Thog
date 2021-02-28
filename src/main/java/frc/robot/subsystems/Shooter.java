@@ -12,6 +12,8 @@ public class Shooter extends SubsystemBase {
     public Shooter() {
 
         shooter = new WPI_TalonFX(RobotMap.SHOOTER_ID);
+        
+        shooter.configFactoryDefault();
     }
 
     public void set(double speed) {

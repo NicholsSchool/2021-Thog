@@ -1,25 +1,28 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 public class Revolver extends SubsystemBase {
     
-    private CANSparkMax revolver;
+    private WPI_TalonFX revolver;
 
     public Revolver() {
 
-        revolver = new CANSparkMax(RobotMap.REVOLVER_ID, MotorType.kBrushless);
+        revolver = new WPI_TalonFX(RobotMap.REVOLVER_ID);
+        
+        revolver.configFactoryDefault();
     }
 
     public void set(double speed) {
+
         revolver.set(speed);
     }
 
     public void stop() {
+
         revolver.stopMotor();
     }
 }
