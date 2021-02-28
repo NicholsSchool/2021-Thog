@@ -2,8 +2,10 @@ package frc.robot;
 
 public class RobotMap {
 
-    // General
-    public static final int PCM_CAN_ID = 51;
+    // Ball Lift
+    public static final int BALL_LIFT_ID = 44;
+
+    public static final double BALL_LIFT_SPEED = 0.5;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 20;
@@ -16,6 +18,14 @@ public class RobotMap {
 
     public static final boolean HIGH_GEAR = true;
     public static final boolean LOW_GEAR = !HIGH_GEAR;
+
+    // General
+    public static final int PCM_CAN_ID = 51;
+
+    // Hood
+    public static final int HOOD_ID = 45;
+    
+    public static final double HOOD_SPEED = 0.1;
 
     // Intake
     public static final int LEFT_INTAKE_ID = 40;
@@ -33,18 +43,8 @@ public class RobotMap {
 
     public static final double REVOLVER_SPEED = 0.25;
 
-    // Ball Lift
-    public static final int BALL_LIFT_ID = 44;
-
-    public static final double BALL_LIFT_SPEED = 0.5;
-
     // Shooter
     public static final int SHOOTER_ID = 25;
 
     public static final double SHOOT_SPEED = 0.5;
-
-    // Hood
-    public static final int HOOD_ID = 45;
-
-    public static final double HOOD_SPEED = 0.1;
 }

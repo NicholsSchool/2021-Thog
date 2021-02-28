@@ -6,14 +6,17 @@ import frc.robot.RobotMap;
 
 public class Uncover extends CommandBase {
     
-    @Override
-    public void initialize() {
-
+    public Uncover() {
+        
         addRequirements(RobotContainer.hood);
     }
 
     @Override
+    public void initialize() {}
+
+    @Override
     public void execute() {
+        
         RobotContainer.hood.set(-RobotMap.HOOD_SPEED);
     }
 

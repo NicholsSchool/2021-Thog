@@ -5,12 +5,14 @@ import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class Lift extends CommandBase {
-    
-    @Override
-    public void initialize() {
 
+    public Lift() {
+        
         addRequirements(RobotContainer.ballLift);
     }
+    
+    @Override
+    public void initialize() {}
 
     @Override
     public void execute() {

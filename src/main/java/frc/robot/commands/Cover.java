@@ -5,12 +5,14 @@ import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class Cover extends CommandBase {
-    
-    @Override
-    public void initialize() {
+
+    public Cover() {
 
         addRequirements(RobotContainer.hood);
     }
+    
+    @Override
+    public void initialize() {}
 
     @Override
     public void execute() {
