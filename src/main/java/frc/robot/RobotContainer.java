@@ -6,12 +6,14 @@ import frc.robot.commands.Drive;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Revolver;
 
 public class RobotContainer {
 
     public static BallLift ballLift;
     public static DriveTrain driveTrain;
     public static Intake intake;
+    public static Revolver revolver;
     public static Shooter shooter;
 
     public static XboxController c0;
@@ -22,6 +24,7 @@ public class RobotContainer {
         ballLift = new BallLift();
         driveTrain = new DriveTrain();
         intake = new Intake();
+        revolver = new Revolver();
         shooter = new Shooter();
 
         configureButtonBindings();
