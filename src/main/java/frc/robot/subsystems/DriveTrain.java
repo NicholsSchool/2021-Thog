@@ -59,15 +59,7 @@ public class DriveTrain extends SubsystemBase {
         rMaster.stopMotor();
     }
 
-    public void gearshift() {
-
-        if (!((boolean) Robot.state.get("IS IN HIGH GEAR"))) {
-            Robot.state.put("IS IN HIGH GEAR", true);
-            shifter.set(RobotMap.HIGH_GEAR);
-        }
-        else if (((boolean) Robot.state.get("HIGH GEAR"))) {
-            Robot.state.put("IS IN HIGH GEAR", false);
-            shifter.set(RobotMap.LOW_GEAR);
-        }
+    public void setShifterGear(boolean isHighGear) {
+        shifter.set(isHighGear);
     }
 }
