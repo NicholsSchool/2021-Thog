@@ -7,8 +7,10 @@ import frc.robot.RobotMap;
 
 public class Gearshift extends CommandBase {
 
-    @Override
-    public void initialize() {
+    public Gearshift() {
+        
+        addRequirements(RobotContainer.driveTrain);
+
         if (!((boolean) Robot.state.get("HIGH GEAR"))) {
             Robot.state.put("IS IN HIGH GEAR", true);
             RobotContainer.driveTrain.setShifterGear(RobotMap.HIGH_GEAR);
@@ -20,12 +22,13 @@ public class Gearshift extends CommandBase {
     }
 
     @Override
+    public void initialize() {}
+
+    @Override
     public void execute() {}
 
     @Override
-    public void end(boolean interrupted) {
-
-    }
+    public void end(boolean interrupted) {}
 
     @Override
     public boolean isFinished() {
