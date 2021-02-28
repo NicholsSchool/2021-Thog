@@ -31,6 +31,8 @@ public class RobotMap {
     // Revolver
     public static final int REVOLVER_ID = 24;
 
+    public static final double REVOLVER_SPEED = 0.25;
+
     // Ball Lift
     public static final int BALL_LIFT_ID = 44;
 
