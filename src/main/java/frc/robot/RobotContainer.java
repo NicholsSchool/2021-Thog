@@ -2,23 +2,8 @@ package frc.robot;
 
 import frc.robot.subsystems.BallLift;
 import frc.robot.util.XboxController;
-import frc.robot.commands.Cover;
-import frc.robot.commands.Drive;
-import frc.robot.commands.Lift;
-import frc.robot.commands.LowerIntake;
-import frc.robot.commands.RaiseIntake;
-import frc.robot.commands.Revolve;
-import frc.robot.commands.RevolveBackwards;
-import frc.robot.commands.Shoot;
-import frc.robot.commands.TakeIn;
-import frc.robot.commands.ToHighGear;
-import frc.robot.commands.ToLowGear;
-import frc.robot.commands.Uncover;
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Hood;
-import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Revolver;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 
 public class RobotContainer {
 
