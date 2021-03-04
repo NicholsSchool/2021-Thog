@@ -6,7 +6,6 @@ import frc.robot.RobotContainer;
 public class Drive extends CommandBase {
 
     public Drive() {
-
         addRequirements(RobotContainer.driveTrain);
     }
 
@@ -15,19 +14,16 @@ public class Drive extends CommandBase {
 
     @Override
     public void execute() {
-
         RobotContainer.driveTrain.move(RobotContainer.c0.getLeftY(), RobotContainer.c0.getRightY());
     }
 
     @Override
     public void end(boolean interrupted) {
-
         RobotContainer.driveTrain.stop();
     }
 
     @Override
     public boolean isFinished() {
-        
         return false;
     }
 }
