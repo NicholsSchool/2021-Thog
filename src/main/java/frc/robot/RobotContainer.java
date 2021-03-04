@@ -1,6 +1,5 @@
 package frc.robot;
 
-import frc.robot.subsystems.BallLift;
 import frc.robot.util.XboxController;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -30,6 +29,8 @@ public class RobotContainer {
     }
     
     private void configureButtonBindings() {
+
+        Robot.state.put("instatiate", "bindings");
 
         c0 = new XboxController(0);
         c1 = new XboxController(1);

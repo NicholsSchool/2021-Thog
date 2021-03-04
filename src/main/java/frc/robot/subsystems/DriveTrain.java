@@ -49,7 +49,8 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void move(double leftSpeed, double rightSpeed) {
-
+        Robot.state.put("leftSpeed", leftSpeed);
+        Robot.state.put("rightSpeed", rightSpeed);
         drive.tankDrive(leftSpeed, rightSpeed);
     }
 
