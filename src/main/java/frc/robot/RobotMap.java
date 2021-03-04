@@ -3,9 +3,9 @@ package frc.robot;
 public class RobotMap {
 
     // Ball Lift
-    public static final int BALL_LIFT_ID = 43; //set
+    // public static final int BALL_LIFT_ID = 43; //set
 
-    public static final double BALL_LIFT_SPEED = 0.5;
+    public static final double BALL_LIFT_SPEED = 0.1;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33; //set
@@ -45,13 +45,24 @@ public class RobotMap {
     public static final double REVOLVER_SPEED = 0.5;
 
     // Shooter
-    public static final int SHOOTER_ID = 31; //set
+    // public static final int SHOOTER_ID = 31; //set
 
-    public static final double SHOOT_SPEED = 0.5;
+    public static final double SHOOT_SPEED = 0.1;
 
     // Elevator Left: 21
     // Elevator Right: 22
 
     // Spare Talon: 29
     // Spare SparkMax: 49
+
+    // TEST BOARD OVERRIDES
+    // Test Board (CAN 20) TalonSRX
+    // Test Board (CAN 21) VictorSPX
+    // Test Board (CAN 22) FalconFX
+    // Test Board (CAN 40) SparkMax
+    // Test Board (DIO 0) LimitSwitch
+    // Test Board (Analog 0) Pot
+    public static final int SHOOTER_ID = 22;
+    public static final int BALL_LIFT_ID = 40;
+    
 }
