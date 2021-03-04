@@ -9,10 +9,10 @@ public class RobotMap {
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33; //set
-    public static final int LEFT_SLAVE_ID = 32; //set
+    public static final int LEFT_SLAV_ID = 32; //set
 
     public static final int RIGHT_MASTER_ID = 34; //set
-    public static final int RIGHT_SLAVE_ID = 30; //set
+    public static final int RIGHT_SLAV_ID = 30; //set
 
     public static final int SHIFTER_SOLENOID_CHANNEL = 0;
 
