@@ -13,7 +13,7 @@ public class ToHighGear extends CommandBase {
     @Override
     public void initialize() {
 
-        RobotContainer.driveTrain.setShifterGear(true);
+        // RobotContainer.driveTrain.setShifterGear(true);
     }
 
     @Override
