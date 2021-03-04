@@ -9,19 +9,16 @@ public class BallLift extends SubsystemBase {
     private CANSparkMax ballLift;
 
     public BallLift() {
-
         ballLift = new CANSparkMax(RobotMap.BALL_LIFT_ID, null);
-
         ballLift.restoreFactoryDefaults();
+        ballLift.setInverted(true);
     }
 
-    public void set(double speed) {
-
+    public void move(double speed) {
         ballLift.set(speed);
     }
 
     public void stop() {
-
         ballLift.stopMotor();
     }
 }

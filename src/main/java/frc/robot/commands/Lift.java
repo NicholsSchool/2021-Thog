@@ -17,7 +17,7 @@ public class Lift extends CommandBase {
     @Override
     public void execute() {
 
-        RobotContainer.ballLift.set(RobotMap.BALL_LIFT_SPEED);
+        RobotContainer.ballLift.move(RobotMap.BALL_LIFT_SPEED);
     }
 
     @Override
