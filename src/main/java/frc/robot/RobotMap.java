@@ -19,6 +19,8 @@ public class RobotMap {
     public static final boolean HIGH_GEAR = true;
     public static final boolean LOW_GEAR = !HIGH_GEAR;
 
+    public static final double GOVERNOR = 1.0; //set
+
     // General
     public static final int PCM_CAN_ID = 51; //set
     public static final int PDP_CAN_ID = 50; //set
