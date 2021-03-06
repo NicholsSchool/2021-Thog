@@ -3,7 +3,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.util.XboxController;
 import frc.robot.commands.*;
+// import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class RobotContainer {
 
@@ -16,6 +18,10 @@ public class RobotContainer {
     public static Intake intake;
     public static Revolver revolver;
     public static Shooter shooter;
+    public static Shifter shifter;
+
+    // public static LimitSwitch limitSwitch;
+    // public static Potentiometer potentiometer;
 
     public static Compressor compressor;
 
@@ -29,6 +35,7 @@ public class RobotContainer {
         // intake = new Intake();
         // revolver = new Revolver();
         // shooter = new Shooter();
+        shifter = new Shifter();
 
         configureButtonBindings();
     }
@@ -40,8 +47,8 @@ public class RobotContainer {
 
         driveTrain.setDefaultCommand(new Drive());
 
-        c0.lBumper.whenPressed(new ToHighGear());
-        c0.lBumper.whenReleased(new ToLowGear());
+        c1.a.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
+        // c1.b.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
 
         // c0.rTrigger.whenPressed(new LowerIntake());
         // c0.rTrigger.whileHeld(new TakeIn());

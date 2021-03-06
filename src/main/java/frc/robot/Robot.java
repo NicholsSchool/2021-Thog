@@ -11,7 +11,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    Robot.state.put("instantiated", "robotInit");
     m_robotContainer = new RobotContainer();
   }
 
@@ -31,6 +30,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    // state.put("ENC VEL", RobotContainer.shooter.getVelocity());
+    // state.put("ENC POS", RobotContainer.shooter.getPosition());
+    // state.put("LS", RobotContainer.limitSwitch.get());
+    // state.put("POT", RobotContainer.potentiometer.get());
     System.out.println(state);
   }
 

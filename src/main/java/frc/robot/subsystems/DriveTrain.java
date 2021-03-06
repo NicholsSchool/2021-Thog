@@ -20,7 +20,6 @@ public class DriveTrain extends SubsystemBase {
     // public static Solenoid shifter;
     public static Solenoid shifter0;
     public static Solenoid shifter1;
-    public static Solenoid shifter2;
 
     private DifferentialDrive drive;
 
@@ -34,7 +33,6 @@ public class DriveTrain extends SubsystemBase {
         // shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
         shifter0 = new Solenoid(RobotMap.PCM_CAN_ID, 0);
         shifter1 = new Solenoid(RobotMap.PCM_CAN_ID, 1);
-        shifter2 = new Solenoid(RobotMap.PCM_CAN_ID, 2);
 
         lMaster.configFactoryDefault();
         lSlav.configFactoryDefault();
@@ -48,18 +46,24 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void move(double leftSpeed, double rightSpeed) {
+
         drive.tankDrive(leftSpeed, rightSpeed);
     }
 
     public void stop() {
+
         lMaster.stopMotor();
         rMaster.stopMotor();
     }
 
-    public void setShifterGear(boolean isHighGear) {
+    public void setShifter0Gear(boolean isHighGear) {
+
         // shifter.set(isHighGear);
         shifter0.set(isHighGear);
+    }
+
+    public void setShifter1Gear(boolean isHighGear) {
+
         shifter1.set(isHighGear);
-        shifter2.set(isHighGear);
     }
 }

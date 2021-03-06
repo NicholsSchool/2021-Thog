@@ -40,6 +40,14 @@ public class RobotMap {
     public static final boolean INTAKE_UP = !INTAKE_DOWN;
 
     public static final double INTAKE_SPEED = 0.5;
+
+    // Limit Switch
+
+    public static final int LIMIT_SWITCH_ID = 0;
+
+    // Potentiometer
+
+    public static final int POTENTIOMETER_ID = 0;
         
     // Revolver
     public static final int REVOLVER_ID = 20; //set
