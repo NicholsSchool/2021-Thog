@@ -24,11 +24,11 @@ public class RobotContainer {
         driveTrain = new DriveTrain();
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
-        ballLift = new BallLift();
-        hood = new Hood();
-        intake = new Intake();
-        revolver = new Revolver();
-        shooter = new Shooter();
+        // ballLift = new BallLift();
+        // hood = new Hood();
+        // intake = new Intake();
+        // revolver = new Revolver();
+        // shooter = new Shooter();
 
         configureButtonBindings();
     }
@@ -36,12 +36,12 @@ public class RobotContainer {
     private void configureButtonBindings() {
 
         c0 = new XboxController(0);
-        c1 = new XboxController(1);
+        // c1 = new XboxController(1);
 
         driveTrain.setDefaultCommand(new Drive());
 
-        // c0.lBumper.whenPressed(new ToHighGear());
-        // c0.lBumper.whenReleased(new ToLowGear());
+        c0.lBumper.whenPressed(new ToHighGear());
+        c0.lBumper.whenReleased(new ToLowGear());
 
         // c0.rTrigger.whenPressed(new LowerIntake());
         // c0.rTrigger.whileHeld(new TakeIn());

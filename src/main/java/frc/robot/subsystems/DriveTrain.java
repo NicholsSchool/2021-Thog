@@ -1,8 +1,9 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
@@ -12,8 +13,14 @@ public class DriveTrain extends SubsystemBase {
 
     private WPI_TalonFX lMaster;
     private WPI_TalonFX lSlav;
+
     private WPI_TalonFX rMaster;
     private WPI_TalonFX rSlav;
+
+    // public static Solenoid shifter;
+    public static Solenoid shifter0;
+    public static Solenoid shifter1;
+    public static Solenoid shifter2;
 
     private DifferentialDrive drive;
 
@@ -24,13 +31,15 @@ public class DriveTrain extends SubsystemBase {
         rMaster = new WPI_TalonFX(RobotMap.RIGHT_MASTER_ID);
         rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
 
+        // shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
+        shifter0 = new Solenoid(RobotMap.PCM_CAN_ID, 0);
+        shifter1 = new Solenoid(RobotMap.PCM_CAN_ID, 1);
+        shifter2 = new Solenoid(RobotMap.PCM_CAN_ID, 2);
+
         lMaster.configFactoryDefault();
         lSlav.configFactoryDefault();
         rMaster.configFactoryDefault();
         rSlav.configFactoryDefault();
-
-        // @note double check inversion
-        // lSlav.setInverted(true);
 
         lSlav.follow(lMaster);
         rSlav.follow(rMaster);
@@ -39,13 +48,6 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void move(double leftSpeed, double rightSpeed) {
-
-        leftSpeed = leftSpeed * RobotMap.GOVERNOR;
-        rightSpeed = rightSpeed * RobotMap.GOVERNOR;
-
-        Robot.state.put("leftSpeed", leftSpeed);
-        Robot.state.put("rightSpeed", rightSpeed);
-
         drive.tankDrive(leftSpeed, rightSpeed);
     }
 
@@ -54,4 +56,10 @@ public class DriveTrain extends SubsystemBase {
         rMaster.stopMotor();
     }
 
+    public void setShifterGear(boolean isHighGear) {
+        // shifter.set(isHighGear);
+        shifter0.set(isHighGear);
+        shifter1.set(isHighGear);
+        shifter2.set(isHighGear);
+    }
 }
