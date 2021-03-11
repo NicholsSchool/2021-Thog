@@ -3,8 +3,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.util.XboxController;
 import frc.robot.commands.*;
-// import frc.robot.sensors.*;
+import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class RobotContainer {
@@ -20,8 +21,8 @@ public class RobotContainer {
     public static Shooter shooter;
     public static Shifter shifter;
 
-    // public static LimitSwitch limitSwitch;
-    // public static Potentiometer potentiometer;
+    public static LimitSwitch limitSwitch;
+    public static Potentiometer potentiometer;
 
     public static Compressor compressor;
 
@@ -43,12 +44,12 @@ public class RobotContainer {
     private void configureButtonBindings() {
 
         c0 = new XboxController(0);
-        // c1 = new XboxController(1);
+        c1 = new XboxController(1);
 
         driveTrain.setDefaultCommand(new Drive());
 
-        c1.a.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
-        // c1.b.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
+        c0.a.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
+        c0.b.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
 
         // c0.rTrigger.whenPressed(new LowerIntake());
         // c0.rTrigger.whileHeld(new TakeIn());
@@ -64,4 +65,9 @@ public class RobotContainer {
         // c1.dpadUp.whileHeld(new Cover());
         // c1.dpadDown.whileHeld(new Uncover());
     }
+
+	public Command getAutonomousCommand() {
+		return null;
+	}
+
 }

@@ -2,16 +2,18 @@ package frc.robot;
 
 import java.util.Hashtable;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
 
   public static Hashtable<String, Object> state = new Hashtable<String, Object>();
-  private RobotContainer m_robotContainer;
+  private RobotContainer robotContainer;
+  private Command autonomousCommand;
 
   @Override
   public void robotInit() {
-    m_robotContainer = new RobotContainer();
+    robotContainer = new RobotContainer();
   }
 
   @Override
@@ -20,7 +22,12 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    autonomousCommand = robotContainer.getAutonomousCommand();
+    if (autonomousCommand != null) {
+        autonomousCommand.schedule();
+    }
+  }
 
   @Override
   public void autonomousPeriodic() {}
@@ -30,10 +37,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // state.put("ENC VEL", RobotContainer.shooter.getVelocity());
-    // state.put("ENC POS", RobotContainer.shooter.getPosition());
-    // state.put("LS", RobotContainer.limitSwitch.get());
-    // state.put("POT", RobotContainer.potentiometer.get());
     System.out.println(state);
   }
 

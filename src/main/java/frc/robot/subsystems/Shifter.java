@@ -9,17 +9,14 @@ public class Shifter extends SubsystemBase {
     private Solenoid shifter;
 
     public Shifter() {
-
         shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
     }
 
     public void highGear() {
-
         shifter.set(false);
     }
 
     public void lowGear() {
-
         shifter.set(true);
     }
 }
