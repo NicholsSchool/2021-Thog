@@ -14,7 +14,7 @@ public class RobotMap {
     public static final int RIGHT_MASTER_ID = 34; //set
     public static final int RIGHT_SLAVE_ID = 30; //set
 
-    public static final int SHIFTER_SOLENOID_CHANNEL = 0;
+    public static final int SHIFTER_SOLENOID_CHANNEL = 1;
 
     public static final boolean HIGH_GEAR = false;
     public static final boolean LOW_GEAR = !HIGH_GEAR;
@@ -34,7 +34,7 @@ public class RobotMap {
     public static final int LEFT_INTAKE_ID = 40; //set
     public static final int RIGHT_INTAKE_ID = 41; //set
 
-    public static final int PISTONS_SOLENOID_CHANNEL = 1;
+    public static final int PISTONS_SOLENOID_CHANNEL = 0;
 
     public static final boolean INTAKE_DOWN = true;
     public static final boolean INTAKE_UP = !INTAKE_DOWN;

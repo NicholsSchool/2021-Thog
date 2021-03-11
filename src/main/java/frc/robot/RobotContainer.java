@@ -37,6 +37,7 @@ public class RobotContainer {
         // intake = new Intake();
         // revolver = new Revolver();
         // shooter = new Shooter();
+        pistons = new Pistons();
         shifter = new Shifter();
 
         configureButtonBindings();
@@ -49,8 +50,8 @@ public class RobotContainer {
 
         driveTrain.setDefaultCommand(new Drive());
 
-        c0.a.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
-        c0.b.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
+        c0.lBumper.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
+        c0.rBumper.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
 
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle(),pistons));
 
@@ -69,7 +70,7 @@ public class RobotContainer {
         // c1.dpadDown.whileHeld(new Uncover());
     }
 
-	public Command getAutonomousCommand() {
-		return null;
-	}
+	// public Command getAutonomousCommand() {
+	// 	return null;
+	// }
 }
