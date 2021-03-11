@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -14,6 +15,7 @@ public class Shooter extends SubsystemBase {
         shooter = new WPI_TalonFX(RobotMap.SHOOTER_ID);
         
         shooter.configFactoryDefault();
+        shooter.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
     }
 
     public void set(double speed) {
@@ -24,5 +26,15 @@ public class Shooter extends SubsystemBase {
     public void stop() {
 
         shooter.stopMotor();
+    }
+
+    public double getPosition() {
+
+        return shooter.getSelectedSensorPosition();
+    }
+
+    public double getVelocity() {
+        
+        return shooter.getSelectedSensorVelocity();
     }
 }

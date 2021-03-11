@@ -11,19 +11,15 @@ public class Hood extends SubsystemBase {
     private CANSparkMax hood;
 
     public Hood() {
-
         hood = new CANSparkMax(RobotMap.HOOD_ID, MotorType.kBrushless);
-        
         hood.restoreFactoryDefaults();
     }
 
-    public void set(double speed) {
-        
+    public void move(double speed) {
         hood.set(speed);
     }
 
     public void stop() {
-
         hood.stopMotor();
     }
 }
