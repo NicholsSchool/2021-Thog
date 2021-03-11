@@ -20,6 +20,7 @@ public class RobotContainer {
     public static Revolver revolver;
     public static Shooter shooter;
     public static Shifter shifter;
+    public static Pistons pistons;
 
     public static LimitSwitch limitSwitch;
     public static Potentiometer potentiometer;
@@ -51,6 +52,8 @@ public class RobotContainer {
         c0.a.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
         c0.b.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
 
+        c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle(),pistons));
+
         // c0.rTrigger.whenPressed(new LowerIntake());
         // c0.rTrigger.whileHeld(new TakeIn());
         // c0.rTrigger.whenReleased(new RaiseIntake());
@@ -69,5 +72,4 @@ public class RobotContainer {
 	public Command getAutonomousCommand() {
 		return null;
 	}
-
 }

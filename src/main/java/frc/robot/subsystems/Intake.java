@@ -3,17 +3,13 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class Intake extends SubsystemBase {
     
     private CANSparkMax lIntake;
     private CANSparkMax rIntake;
-
-    private Solenoid intakeSolenoid;
 
     public Intake() {
 
@@ -22,10 +18,6 @@ public class Intake extends SubsystemBase {
         
         lIntake.restoreFactoryDefaults();
         rIntake.restoreFactoryDefaults();
-
-        intakeSolenoid = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.INTAKE_SOLENOID_CHANNEL);
-        Robot.state.put("INTAKE IS DOWN", true);
-        intakeSolenoid.set(RobotMap.INTAKE_DOWN);
 
         /*
             Invert stuff, pt. 2 
@@ -40,9 +32,5 @@ public class Intake extends SubsystemBase {
     public void stop() {
         lIntake.stopMotor();
         rIntake.stopMotor();
-    }
-
-    public void setPosition(boolean isSetDown) {
-        intakeSolenoid.set(isSetDown);
     }
 }
