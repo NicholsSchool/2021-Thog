@@ -27,12 +27,15 @@ public class RobotContainer {
     public static Shooter shooter;
 
     // Sensors
-    public static LimitSwitch limitSwitch;
-    public static Potentiometer potentiometer;
+    public LimitSwitch limitSwitch;
+    public Potentiometer potentiometer;
 
     public RobotContainer() {
         
+        // general
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
+
+        // subsystems
         driveTrain = new DriveTrain();
         ballLift = new BallLift();
         hood = new Hood();
@@ -41,6 +44,10 @@ public class RobotContainer {
         shooter = new Shooter();
         pistons = new Pistons();
         shifter = new Shifter();
+
+        // sensors
+        limitSwitch = new LimitSwitch();
+        potentiometer = new Potentiometer();
 
         configureButtonBindings();
     }
@@ -54,7 +61,7 @@ public class RobotContainer {
 
         // Controller Zero
         c0.lTrigger.whenActive(new InstantCommand(() -> pistons.toggle())); // 2nd param neccesary?
-        // c0.rTrigger.whileHeld(new TakeIn());
+        // c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
         c0.lBumper.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
         c0.rBumper.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
         c0.a.whileHeld(new Revolve());

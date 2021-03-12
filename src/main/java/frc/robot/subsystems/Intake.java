@@ -16,13 +16,12 @@ public class Intake extends SubsystemBase {
         rIntake = new CANSparkMax(RobotMap.RIGHT_INTAKE_ID, MotorType.kBrushless);
         lIntake.restoreFactoryDefaults();
         rIntake.restoreFactoryDefaults();
-
-        // lIntake.setInverted(true);
+        lIntake.setInverted(true);
     }
 
     public void move(double speed) {
         lIntake.set(speed);
-        // rIntake.set(speed);
+        rIntake.set(speed);
     }
 
     public void stop() {
