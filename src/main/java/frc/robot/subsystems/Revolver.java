@@ -14,7 +14,7 @@ public class Revolver extends SubsystemBase {
         revolver.configFactoryDefault();
     }
 
-    public void set(double speed) {
+    public void move(double speed) {
         revolver.set(speed);
     }
 

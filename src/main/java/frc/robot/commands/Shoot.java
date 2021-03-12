@@ -15,7 +15,7 @@ public class Shoot extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.shooter.set(RobotMap.SHOOT_SPEED);
+        RobotContainer.shooter.move(RobotMap.SHOOT_SPEED);
     }
 
     @Override

@@ -11,31 +11,25 @@ public class Shooter extends SubsystemBase {
     private WPI_TalonFX shooter;
 
     public Shooter() {
-
         shooter = new WPI_TalonFX(RobotMap.SHOOTER_ID);
-        
         shooter.configFactoryDefault();
         shooter.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
         shooter.setInverted(true);
     }
 
-    public void set(double speed) {
-
+    public void move(double speed) {
         shooter.set(speed);
     }
 
     public void stop() {
-
         shooter.stopMotor();
     }
 
     public double getPosition() {
-
         return shooter.getSelectedSensorPosition();
     }
 
     public double getVelocity() {
-        
         return shooter.getSelectedSensorVelocity();
     }
 }

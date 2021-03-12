@@ -15,7 +15,7 @@ public class Revolve extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.revolver.set(RobotMap.REVOLVER_SPEED);
+        RobotContainer.revolver.move(RobotMap.REVOLVER_SPEED);
     }
 
     @Override

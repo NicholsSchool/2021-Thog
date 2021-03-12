@@ -12,10 +12,8 @@ public class Intake extends SubsystemBase {
     private CANSparkMax rIntake;
 
     public Intake() {
-
         lIntake = new CANSparkMax(RobotMap.LEFT_INTAKE_ID, MotorType.kBrushless);
         rIntake = new CANSparkMax(RobotMap.RIGHT_INTAKE_ID, MotorType.kBrushless);
-        
         lIntake.restoreFactoryDefaults();
         rIntake.restoreFactoryDefaults();
 
