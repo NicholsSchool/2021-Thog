@@ -7,7 +7,6 @@ import frc.robot.RobotMap;
 public class Lift extends CommandBase {
 
     public Lift() {
-        
         addRequirements(RobotContainer.ballLift);
     }
     
@@ -16,19 +15,16 @@ public class Lift extends CommandBase {
 
     @Override
     public void execute() {
-
         RobotContainer.ballLift.move(RobotMap.BALL_LIFT_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-
         RobotContainer.ballLift.stop();
     }
 
     @Override
     public boolean isFinished() {
-
         return false;
     }
 }

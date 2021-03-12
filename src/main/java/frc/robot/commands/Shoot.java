@@ -7,7 +7,6 @@ import frc.robot.RobotMap;
 public class Shoot extends CommandBase {
 
     public Shoot() {
-
         addRequirements(RobotContainer.shooter);
     }
     
@@ -16,19 +15,16 @@ public class Shoot extends CommandBase {
 
     @Override
     public void execute() {
-        
         RobotContainer.shooter.set(RobotMap.SHOOT_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-
         RobotContainer.shooter.stop();
     }
 
     @Override
     public boolean isFinished() {
-
         return false;
     }
 }

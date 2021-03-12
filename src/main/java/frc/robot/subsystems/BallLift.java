@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -9,7 +10,7 @@ public class BallLift extends SubsystemBase {
     private CANSparkMax ballLift;
 
     public BallLift() {
-        ballLift = new CANSparkMax(RobotMap.BALL_LIFT_ID, null);
+        ballLift = new CANSparkMax(RobotMap.BALL_LIFT_ID, MotorType.kBrushless);
         ballLift.restoreFactoryDefaults();
         ballLift.setInverted(true);
     }

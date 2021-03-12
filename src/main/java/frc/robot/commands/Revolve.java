@@ -7,7 +7,6 @@ import frc.robot.RobotMap;
 public class Revolve extends CommandBase {
 
     public Revolve() {
-
         addRequirements(RobotContainer.revolver);
     }
 
@@ -16,19 +15,16 @@ public class Revolve extends CommandBase {
 
     @Override
     public void execute() {
-
         RobotContainer.revolver.set(RobotMap.REVOLVER_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-
         RobotContainer.revolver.stop();
     }
 
     @Override
     public boolean isFinished() {
-        
         return false;
     }
 }

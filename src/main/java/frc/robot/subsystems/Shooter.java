@@ -16,6 +16,7 @@ public class Shooter extends SubsystemBase {
         
         shooter.configFactoryDefault();
         shooter.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
+        shooter.setInverted(true);
     }
 
     public void set(double speed) {

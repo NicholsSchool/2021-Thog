@@ -19,14 +19,12 @@ public class Intake extends SubsystemBase {
         lIntake.restoreFactoryDefaults();
         rIntake.restoreFactoryDefaults();
 
-        /*
-            Invert stuff, pt. 2 
-        */
+        // lIntake.setInverted(true);
     }
 
     public void move(double speed) {
         lIntake.set(speed);
-        rIntake.set(-speed);
+        // rIntake.set(speed);
     }
 
     public void stop() {

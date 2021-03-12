@@ -10,19 +10,15 @@ public class Revolver extends SubsystemBase {
     private WPI_TalonSRX revolver;
 
     public Revolver() {
-
         revolver = new WPI_TalonSRX(RobotMap.REVOLVER_ID);
-        
         revolver.configFactoryDefault();
     }
 
     public void set(double speed) {
-
         revolver.set(speed);
     }
 
     public void stop() {
-
         revolver.stopMotor();
     }
 }

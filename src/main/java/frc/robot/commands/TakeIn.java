@@ -7,7 +7,6 @@ import frc.robot.RobotMap;
 public class TakeIn extends CommandBase {
     
     public TakeIn() {
-
         addRequirements(RobotContainer.intake);
     }
 
@@ -16,19 +15,16 @@ public class TakeIn extends CommandBase {
     
     @Override
     public void execute() {
-        
         RobotContainer.intake.move(RobotMap.INTAKE_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-
         RobotContainer.intake.stop();
     }
 
     @Override
     public boolean isFinished() {
-        
         return false;
     }
 }
