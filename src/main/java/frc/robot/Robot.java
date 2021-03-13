@@ -37,10 +37,9 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    state.put("LS", robotContainer.limitSwitch.get());
-    state.put("Pot", robotContainer.potentiometer.get());
-    state.put("Velocity", robotContainer.shooter.getVelocity());
-    state.put("Position", robotContainer.shooter.getPosition());
+    state.put("LS", RobotContainer.limitSwitch.get());
+    state.put("Pot", RobotContainer.potentiometer.get());
+    state.put("Velocity", RobotContainer.shooter.getVelocity());
     System.out.println(state);
   }
 

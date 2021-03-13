@@ -27,8 +27,8 @@ public class RobotContainer {
     public static Shooter shooter;
 
     // Sensors
-    public LimitSwitch limitSwitch;
-    public Potentiometer potentiometer;
+    public static LimitSwitch limitSwitch;
+    public static Potentiometer potentiometer;
 
     public RobotContainer() {
         
