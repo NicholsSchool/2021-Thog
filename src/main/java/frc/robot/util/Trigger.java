@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.button.Button;
  *  to be controlled like any other button
  */
 public class Trigger extends Button {
-    
+
     private XboxController controller;
     private int axisID;
 

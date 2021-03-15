@@ -9,7 +9,7 @@ public class Cover extends CommandBase {
     public Cover() {
         addRequirements(RobotContainer.hood);
     }
-    
+
     @Override
     public void initialize() {}
 

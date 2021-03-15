@@ -5,14 +5,14 @@ import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class TakeIn extends CommandBase {
-    
+
     public TakeIn() {
         addRequirements(RobotContainer.intake);
     }
 
     @Override
     public void initialize() {}
-    
+
     @Override
     public void execute() {
         RobotContainer.intake.move(RobotMap.INTAKE_SPEED);

@@ -6,7 +6,7 @@ import frc.robot.RobotMap;
 public class Potentiometer {
 
     private AnalogPotentiometer potentiometer;
-    
+
     public Potentiometer() {
         potentiometer = new AnalogPotentiometer(RobotMap.POTENTIOMETER_ID);
     }

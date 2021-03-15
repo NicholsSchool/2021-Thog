@@ -10,7 +10,7 @@ package frc.robot.util;
 import edu.wpi.first.wpilibj2.command.button.Button;
 
 /**
- * This class is used to allow the behavior of an XboxController's POV controls (DPAD) to 
+ * This class is used to allow the behavior of an XboxController's POV controls (DPAD) to
  * be controlled like any other button
  */
 public class POVButton extends Button {
@@ -27,7 +27,7 @@ public class POVButton extends Button {
         this.controller = controller;
         this.povValue = povValue;
     }
-    
+
     /**
      * Returns true if the button is pressed
      * @return true if the button is pressed

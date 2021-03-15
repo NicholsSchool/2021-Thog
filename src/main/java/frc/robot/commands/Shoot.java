@@ -9,7 +9,7 @@ public class Shoot extends CommandBase {
     public Shoot() {
         addRequirements(RobotContainer.shooter);
     }
-    
+
     @Override
     public void initialize() {}
 

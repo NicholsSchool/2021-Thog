@@ -5,7 +5,7 @@ import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class Uncover extends CommandBase {
-    
+
     public Uncover() {
         addRequirements(RobotContainer.hood);
     }

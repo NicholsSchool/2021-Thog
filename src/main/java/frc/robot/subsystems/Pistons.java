@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 public class Pistons extends SubsystemBase {
-    
+
     private Solenoid pistons;
-    
+
     public Pistons() {
         pistons = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.PISTONS_SOLENOID_CHANNEL);
     }

@@ -31,7 +31,7 @@ public class RobotContainer {
     public static Potentiometer potentiometer;
 
     public RobotContainer() {
-        
+
         // general
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
@@ -51,7 +51,7 @@ public class RobotContainer {
 
         configureButtonBindings();
     }
-    
+
     private void configureButtonBindings() {
 
         c0 = new XboxController(0);

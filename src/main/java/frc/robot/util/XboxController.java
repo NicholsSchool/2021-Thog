@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
- * This class is used to instantiate and retrieve values from all buttons, triggers, and pov inputs of 
+ * This class is used to instantiate and retrieve values from all buttons, triggers, and pov inputs of
  * a Xbox Controller
  */
 public class XboxController extends Joystick {
@@ -19,7 +19,7 @@ public class XboxController extends Joystick {
      */
 	public XboxController(int port) {
         super(port);
-        
+
         a = new JoystickButton(this, 1);
         b = new JoystickButton(this, 2);
         x = new JoystickButton(this, 3);
@@ -36,7 +36,7 @@ public class XboxController extends Joystick {
         dpadRight = new POVButton(this, 90);
         lTrigger = new Trigger(this, 2);
         rTrigger = new Trigger(this, 3);
-		
+
     }
 
     public double getLeftX() {
