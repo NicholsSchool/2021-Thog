@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class Lift extends CommandBase {
+public class ResetLift extends CommandBase {
 
-    public Lift() {
+    public ResetLift() {
         addRequirements(RobotContainer.ballLift);
     }
 
@@ -15,7 +15,7 @@ public class Lift extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.ballLift.move(RobotMap.BALL_LIFT_SPEED);
+        RobotContainer.ballLift.move(RobotMap.BALL_LIFT_RESET_SPEED);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class Lift extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return false;
+        return RobotContainer.limitSwitch.get();
     }
 }

@@ -5,6 +5,7 @@ public class RobotMap {
     // Ball Lift
     public static final int BALL_LIFT_ID = 43; //set
     public static final double BALL_LIFT_SPEED = 0.4;
+    public static final double BALL_LIFT_RESET_SPEED = 0.1;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33; //set
@@ -37,7 +38,7 @@ public class RobotMap {
 
     // Potentiometer
     public static final int POTENTIOMETER_ID = 0;
-        
+
     // Revolver
     public static final int REVOLVER_ID = 20; //set
     public static final double REVOLVER_SPEED = 0.3;
@@ -51,5 +52,5 @@ public class RobotMap {
 
     // Spare Talon: 29
     // Spare SparkMax: 49
-    
+
 }
