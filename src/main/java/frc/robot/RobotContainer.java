@@ -32,10 +32,10 @@ public class RobotContainer {
 
     public RobotContainer() {
 
-        // general
+        // Instatiate General Components
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
-        // subsystems
+        // Instatiate Subsystems
         driveTrain = new DriveTrain();
         ballLift = new BallLift();
         hood = new Hood();
@@ -45,7 +45,7 @@ public class RobotContainer {
         pistons = new Pistons();
         shifter = new Shifter();
 
-        // sensors
+        // Instatiate Sensors
         limitSwitch = new LimitSwitch();
         potentiometer = new Potentiometer();
 
@@ -54,28 +54,36 @@ public class RobotContainer {
 
     private void configureButtonBindings() {
 
+        // Controllers
         c0 = new XboxController(0);
         c1 = new XboxController(1);
 
+        // Setup Tank Drive
         driveTrain.setDefaultCommand(new Drive());
 
-        // Controller Zero
-        c0.lTrigger.whenActive(new InstantCommand(() -> pistons.toggle())); // 2nd param neccesary?
+        // First Controller
+        c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         // c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
-        c0.lBumper.whenActive(new InstantCommand(() -> shifter.lowGear(),shifter));
-        c0.rBumper.whenActive(new InstantCommand(() -> shifter.highGear(),shifter));
+        c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
+        c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
         c0.a.whileHeld(new Revolve());
         c0.b.whileHeld(new RevolveBackwards());
 
-        // Controller One
-        c1.lTrigger.whenActive(new InstantCommand(() -> pistons.toggle(),pistons));
+        // Second Controller
+        c1.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c1.rTrigger.whileHeld(new Shoot());
         c1.lBumper.whileHeld(new Lift());
+        c1.lBumper.whenReleased(new ResetLift());
         c1.a.whileHeld(new Revolve());
         c1.b.whileHeld(new RevolveBackwards());
-
         // c1.dpadUp.whileHeld(new Cover());
         // c1.dpadDown.whileHeld(new Uncover());
+    }
+
+    public void getRobotState() {
+        Robot.state.put("LS", limitSwitch.get());
+        Robot.state.put("Pot", potentiometer.get());
+        System.out.println(Robot.state);
     }
 
 }

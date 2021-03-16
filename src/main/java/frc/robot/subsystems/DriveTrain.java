@@ -31,7 +31,10 @@ public class DriveTrain extends SubsystemBase {
         lSlav.follow(lMaster);
         rSlav.follow(rMaster);
 
-        drive = new DifferentialDrive(new SpeedControllerGroup(lMaster), new SpeedControllerGroup(rMaster));
+        drive = new DifferentialDrive(
+            new SpeedControllerGroup(lMaster), 
+            new SpeedControllerGroup(rMaster)
+        );
     }
 
     public void move(double leftSpeed, double rightSpeed) {
