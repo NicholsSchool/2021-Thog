@@ -20,7 +20,9 @@ public class RobotMap {
 
     // Hood
     public static final int HOOD_ID = 42;
-    public static final double HOOD_SPEED = 0.3;
+    public static final int HOOD_MAX_RETRACTED_ANGLE = 90;
+    public static final int HOOD_MAX_EXTENDED_ANGLE = 180;
+    public static final double HOOD_SPEED = 0.05;
 
     // Intake
     public static final int LEFT_INTAKE_ID = 40;
@@ -37,10 +39,13 @@ public class RobotMap {
     // Sensors
     public static final int LIMIT_SWITCH_ID = 0;
     public static final int POTENTIOMETER_ID = 0;
+    public static final int POTENTIOMETER_TURNS = 1;
+    public static final int POTENTIOMETER_DEGREES_PER_TURN = 270;
 
     // Shooter
     public static final int SHOOTER_ID = 31;
-    public static final double SHOOT_SPEED = 0.8;
+    public static final double SHOOTER_SPEED = 0.9;
+    public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 1500;
 
     // Elevator Left: CAN #21
     // Elevator Right: CAN #22

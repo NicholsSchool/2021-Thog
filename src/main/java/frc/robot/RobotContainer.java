@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class RobotContainer {
 
+    // Shorthand Constants
+    private static final boolean CW = RobotMap.CLOCKWISE;
+    private static final boolean CCW = RobotMap.COUNTER_CLOCKWISE;
+
     // Controllers
     public static XboxController c0;
     public static XboxController c1;
@@ -63,30 +67,33 @@ public class RobotContainer {
 
         // First Controller
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
-        c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
+        c0.rTrigger.whileHeld(new RunIntake()); // Possible bad motor
         c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
         c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
-        c0.a.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.CLOCKWISE)));
+        c0.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c0.a.whileHeld(new SpinRevolver());
-        c0.b.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.COUNTER_CLOCKWISE)));
+        c0.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
         c0.b.whileHeld(new SpinRevolver());
 
         // Second Controller
-        c1.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
-        c1.rTrigger.whileHeld(new Shoot());
+        c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
+        // c1.lTrigger.whileHeld(); // Use Limelight for alignment, distance, etc.
+        c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
+        c1.rTrigger.whenPressed(new ResetHood());
+        c1.rTrigger.whileHeld(new CloseShot());
+        c1.rTrigger.whenReleased(new ResetFlapper());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.lBumper.whenReleased(new ResetFlapper());
-        c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.CLOCKWISE)));
+        c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c1.a.whileHeld(new SpinRevolver());
-        c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.COUNTER_CLOCKWISE)));
+        c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
         c1.b.whileHeld(new SpinRevolver());
-        // c1.dpadUp.whileHeld(new Cover());
-        // c1.dpadDown.whileHeld(new Uncover());
     }
 
     public void getRobotState() {
         Robot.state.put("LS", limitSwitch.get());
-        Robot.state.put("Pot", potentiometer.get());
+        Robot.state.put("Pot", potentiometer.getAngle());
+        Robot.state.put("Velocity", shooter.getVelocity());
         System.out.println(Robot.state);
     }
 }

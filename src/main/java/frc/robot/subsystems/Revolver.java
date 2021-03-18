@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -13,6 +13,7 @@ public class Revolver extends SubsystemBase {
     public Revolver() {
         revolver = new WPI_TalonSRX(RobotMap.REVOLVER_ID);
         revolver.configFactoryDefault();
+        revolver.setNeutralMode(NeutralMode.Brake);
     }
 
     public void move(double speed) {

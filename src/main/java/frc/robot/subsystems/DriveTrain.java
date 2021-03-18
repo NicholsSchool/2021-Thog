@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
@@ -16,6 +16,7 @@ public class DriveTrain extends SubsystemBase {
     private WPI_TalonFX rSlav;
 
     private DifferentialDrive drive;
+    private boolean enabled = true;
 
     public DriveTrain() {
         lMaster = new WPI_TalonFX(RobotMap.LEFT_MASTER_ID);
@@ -31,6 +32,11 @@ public class DriveTrain extends SubsystemBase {
         lSlav.follow(lMaster);
         rSlav.follow(rMaster);
 
+        lMaster.setNeutralMode(NeutralMode.Brake);
+        lSlav.setNeutralMode(NeutralMode.Brake);
+        rMaster.setNeutralMode(NeutralMode.Brake);
+        rSlav.setNeutralMode(NeutralMode.Brake);
+
         drive = new DifferentialDrive(
             new SpeedControllerGroup(lMaster), 
             new SpeedControllerGroup(rMaster)
@@ -38,11 +44,21 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void move(double leftSpeed, double rightSpeed) {
-        drive.tankDrive(leftSpeed, rightSpeed);
+        if (enabled) {
+            drive.tankDrive(leftSpeed, rightSpeed);
+        }
     }
 
     public void stop() {
         lMaster.stopMotor();
         rMaster.stopMotor();
+    }
+
+    public void enabled() {
+        enabled = true;
+    }
+    
+    public void disabled() {
+        enabled = false;
     }
 }

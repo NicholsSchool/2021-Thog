@@ -6,30 +6,35 @@ import frc.robot.RobotMap;
 
 /* Shooting Sequence
 
- c1.lTrigger.whenPressed():
+c1.lTrigger.whenPressed():
     * set robot state such that the driver can't drive
- c1.lTrigger.whileHeld():
+c1.lTrigger.whileHeld():
     * get data from LimeLight
     * rotate and align robot with target
     * determine distance
     * move foward to known range table
- c1.lTrigger.whenReleased():
+c1.lTrigger.whenReleased():
     * set robot state such that driver is able to drive
- c1.rTrigger.whenPressed():
-    * set robot state such that the driver can't drive
- c1.rTrigger.whileHeld():
+    
+c1.rTrigger.whileHeld():
     * spin up flywheel to velocity threshold
     * set hood angle (check LL distance)
-    * spin ball lift
+    * spin flapper
     * rotate revolver slowly
- c1.rTrigger.whenReleased():
-    * cut power to shooter
-    * cut power to revolver
-    * reset ball lift
+c1.rTrigger.whenReleased():
+    * reset flapper
     * reset hood
-    * set robot state such that driver is able to drive
 
-Edge Cases:
+c1.rBumper.whenPressed():
+    * reset hood
+c1.rBumper.whileHeld():
+    * run flywheel at 90% power
+    * spin flapper
+    * rotate revolver slowly
+c1.rBumper.whenReleased():
+    * reset ball lift
+
+Edge Cases/Thoughts:
     * What happens when LL doesn't see target?
     * What happens when we want to shoot close?
     * Perhaps rBumper can be reset hood and initiate shooting sequence
@@ -37,9 +42,9 @@ Edge Cases:
         ** Prioritize LL distance over sonic sensor in case of obstacles/robots
 */
 
-public class Shoot extends CommandBase {
+public class SpinShooter extends CommandBase {
 
-    public Shoot() {
+    public SpinShooter() {
         addRequirements(RobotContainer.shooter);
     }
 
@@ -48,7 +53,7 @@ public class Shoot extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.shooter.move(RobotMap.SHOOT_SPEED);
+        RobotContainer.shooter.move(RobotMap.SHOOTER_SPEED);
     }
 
     @Override

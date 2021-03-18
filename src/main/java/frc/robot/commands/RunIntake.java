@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class TakeIn extends CommandBase {
+public class RunIntake extends CommandBase {
 
-    public TakeIn() {
+    public RunIntake() {
         addRequirements(RobotContainer.intake);
     }
 

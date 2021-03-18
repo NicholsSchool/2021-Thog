@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -15,6 +15,7 @@ public class Shooter extends SubsystemBase {
         shooter.configFactoryDefault();
         shooter.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
         shooter.setInverted(true);
+        shooter.setNeutralMode(NeutralMode.Coast);
     }
 
     public void move(double speed) {
