@@ -6,12 +6,12 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
-public class BallLift extends SubsystemBase {
+public class Flapper extends SubsystemBase {
 
     private CANSparkMax ballLift;
 
-    public BallLift() {
-        ballLift = new CANSparkMax(RobotMap.BALL_LIFT_ID, MotorType.kBrushless);
+    public Flapper() {
+        ballLift = new CANSparkMax(RobotMap.FLAPPER_ID, MotorType.kBrushless);
         ballLift.restoreFactoryDefaults();
         ballLift.setIdleMode(IdleMode.kBrake);
         ballLift.setInverted(true);

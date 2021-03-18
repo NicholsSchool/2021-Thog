@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class Cover extends CommandBase {
+public class ResetFlapper extends CommandBase {
 
-    public Cover() {
-        addRequirements(RobotContainer.hood);
+    public ResetFlapper() {
+        addRequirements(RobotContainer.flapper);
     }
 
     @Override
@@ -15,16 +15,16 @@ public class Cover extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.hood.move(RobotMap.HOOD_SPEED);
+        RobotContainer.flapper.move(RobotMap.FLAPPER_RESET_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-        RobotContainer.hood.stop();
+        RobotContainer.flapper.stop();
     }
 
     @Override
     public boolean isFinished() {
-        return false;
+        return RobotContainer.limitSwitch.get();
     }
 }

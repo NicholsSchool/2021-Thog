@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class ResetLift extends CommandBase {
+public class SpinRevolver extends CommandBase {
 
-    public ResetLift() {
-        addRequirements(RobotContainer.ballLift);
+    public SpinRevolver() {
+        addRequirements(RobotContainer.revolver);
     }
 
     @Override
@@ -15,16 +15,16 @@ public class ResetLift extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.ballLift.move(RobotMap.BALL_LIFT_RESET_SPEED);
+        RobotContainer.revolver.move(RobotMap.REVOLVER_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-        RobotContainer.ballLift.stop();
+        RobotContainer.revolver.stop();
     }
 
     @Override
     public boolean isFinished() {
-        return RobotContainer.limitSwitch.get();
+        return false;
     }
 }

@@ -2,10 +2,10 @@ package frc.robot;
 
 public class RobotMap {
 
-    // Ball Lift
-    public static final int BALL_LIFT_ID = 43;
-    public static final double BALL_LIFT_SPEED = 0.4;
-    public static final double BALL_LIFT_RESET_SPEED = 0.1;
+    // Flapper
+    public static final int FLAPPER_ID = 43;
+    public static final double FLAPPER_SPEED = 0.4;
+    public static final double FLAPPER_RESET_SPEED = 0.1;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33;
@@ -31,6 +31,8 @@ public class RobotMap {
     // Revolver
     public static final int REVOLVER_ID = 20;
     public static final double REVOLVER_SPEED = 0.3;
+    public static final boolean CLOCKWISE = true;
+    public static final boolean COUNTER_CLOCKWISE = !CLOCKWISE;
 
     // Sensors
     public static final int LIMIT_SWITCH_ID = 0;

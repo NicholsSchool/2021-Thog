@@ -17,7 +17,7 @@ public class RobotContainer {
     public static Compressor compressor;
 
     // Subsystems
-    public static BallLift ballLift;
+    public static Flapper flapper;
     public static DriveTrain driveTrain;
     public static Hood hood;
     public static Intake intake;
@@ -37,7 +37,7 @@ public class RobotContainer {
 
         // Instatiate Subsystems
         driveTrain = new DriveTrain();
-        ballLift = new BallLift();
+        flapper = new Flapper();
         hood = new Hood();
         intake = new Intake();
         revolver = new Revolver();
@@ -66,15 +66,17 @@ public class RobotContainer {
         // c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
         c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
         c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
-        c0.a.whileHeld(new Revolve());
+        c0.a.whileHeld(new SpinRevolver());
         c0.b.whileHeld(new RevolveBackwards());
 
         // Second Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c1.rTrigger.whileHeld(new Shoot());
-        c1.lBumper.whileHeld(new Lift());
-        c1.lBumper.whenReleased(new ResetLift());
-        c1.a.whileHeld(new Revolve());
+        c1.lBumper.whileHeld(new RotateFlapper());
+        c1.lBumper.whenReleased(new ResetFlapper());
+        c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.CLOCKWISE)));
+        c1.a.whileHeld(new SpinRevolver());
+        c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.COUNTER_CLOCKWISE)));
         c1.b.whileHeld(new RevolveBackwards());
         // c1.dpadUp.whileHeld(new Cover());
         // c1.dpadDown.whileHeld(new Uncover());
@@ -85,5 +87,4 @@ public class RobotContainer {
         Robot.state.put("Pot", potentiometer.get());
         System.out.println(Robot.state);
     }
-
 }
