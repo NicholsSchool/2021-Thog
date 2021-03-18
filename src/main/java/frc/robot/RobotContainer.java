@@ -67,7 +67,7 @@ public class RobotContainer {
 
         // First Controller
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
-        c0.rTrigger.whileHeld(new RunIntake()); // Possible bad motor
+        // c0.rTrigger.whileHeld(new RunIntake()); // Possible bad motor
         c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
         c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
         c0.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
@@ -84,6 +84,9 @@ public class RobotContainer {
         c1.rTrigger.whenReleased(new ResetFlapper());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.lBumper.whenReleased(new ResetFlapper());
+        c1.rBumper.whileHeld(new SpinShooter());
+        c1.y.whenPressed(new ExtendHood());
+        c1.x.whenPressed(new RetractHood());
         c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));

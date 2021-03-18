@@ -18,11 +18,38 @@ public class RobotMap {
     // General
     public static final int PCM_CAN_ID = 51;
 
+    // Game Specific
+    public static final double GREEN_ZONE_MIN = 0.0;
+    public static final double GREEN_ZONE_DISTANCE = 5.0;
+    public static final double GREEN_ZONE_MAX = 7.5;
+    public static final double YELLOW_ZONE_MIN = 7.5;
+    public static final double YELLOW_ZONE_DISTANCE = 10.0;
+    public static final double YELLOW_ZONE_MAX = 12.5;
+    public static final double BLUE_ZONE_MIN = 12.5;
+    public static final double BLUE_ZONE_DISTANCE = 15.0;
+    public static final double BLUE_ZONE_MAX = 17.5;
+    public static final double RED_ZONE_MIN = 17.5;
+    public static final double RED_ZONE_DISTANCE = 20.0;
+    public static final double RED_ZONE_MAX = 22.5;
+
     // Hood
     public static final int HOOD_ID = 42;
-    public static final int HOOD_MAX_RETRACTED_ANGLE = 90;
-    public static final int HOOD_MAX_EXTENDED_ANGLE = 180;
     public static final double HOOD_SPEED = 0.05;
+    public static final double HOOD_ANGLE_THRESHOLD = 3;
+    public static final double HOOD_MAX_RETRACTED_ANGLE = 95;
+    public static final double HOOD_ANGLE_GREEN_ZONE = 90; // 5 ft
+    public static final double HOOD_ANGLE_YELLOW_ZONE = 75; // 10ft
+    public static final double HOOD_ANGLE_BLUE_ZONE = 60; // 15ft
+    public static final double HOOD_ANGLE_RED_ZONE = 45; // 20ft
+    public static final double HOOD_MAX_EXTENDED_ANGLE = 40;
+    public static final double[] HOOD_ANGLE_ARRAY = {
+        HOOD_MAX_RETRACTED_ANGLE,
+        HOOD_ANGLE_GREEN_ZONE,
+        HOOD_ANGLE_YELLOW_ZONE,
+        HOOD_ANGLE_BLUE_ZONE,
+        HOOD_ANGLE_RED_ZONE,
+        HOOD_MAX_EXTENDED_ANGLE
+    };
 
     // Intake
     public static final int LEFT_INTAKE_ID = 40;
