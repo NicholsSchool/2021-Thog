@@ -8,7 +8,7 @@ import frc.robot.RobotMap;
 public class Revolver extends SubsystemBase {
 
     private WPI_TalonSRX revolver;
-    private double multiplier;
+    private double multiplier = 1.0;
 
     public Revolver() {
         revolver = new WPI_TalonSRX(RobotMap.REVOLVER_ID);
@@ -25,9 +25,9 @@ public class Revolver extends SubsystemBase {
 
     public void setDirection(boolean direction) {
         if (direction) {
-            multiplier = 1;
+            multiplier = 1.0;
         } else {
-            multiplier = -1;
+            multiplier = -1.0;
         }
     }
 }

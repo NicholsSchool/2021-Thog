@@ -63,11 +63,13 @@ public class RobotContainer {
 
         // First Controller
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
-        // c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
+        c0.rTrigger.whileHeld(new TakeIn()); // Possible bad motor
         c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
         c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
+        c0.a.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.CLOCKWISE)));
         c0.a.whileHeld(new SpinRevolver());
-        c0.b.whileHeld(new RevolveBackwards());
+        c0.b.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.COUNTER_CLOCKWISE)));
+        c0.b.whileHeld(new SpinRevolver());
 
         // Second Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
@@ -77,7 +79,7 @@ public class RobotContainer {
         c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.CLOCKWISE)));
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(RobotMap.COUNTER_CLOCKWISE)));
-        c1.b.whileHeld(new RevolveBackwards());
+        c1.b.whileHeld(new SpinRevolver());
         // c1.dpadUp.whileHeld(new Cover());
         // c1.dpadDown.whileHeld(new Uncover());
     }
