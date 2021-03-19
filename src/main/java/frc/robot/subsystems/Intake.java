@@ -22,7 +22,7 @@ public class Intake extends SubsystemBase {
     }
 
     public void move(double speed) {
-        lIntake.set(speed);
+        // lIntake.set(speed);
         rIntake.set(speed);
     }
 

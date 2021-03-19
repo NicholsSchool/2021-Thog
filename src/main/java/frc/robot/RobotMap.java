@@ -55,7 +55,7 @@ public class RobotMap {
     public static final int LEFT_INTAKE_ID = 40;
     public static final int RIGHT_INTAKE_ID = 41;
     public static final int PISTONS_SOLENOID_CHANNEL = 0;
-    public static final double INTAKE_SPEED = 0.5;
+    public static final double INTAKE_SPEED = 0.9;
 
     // Revolver
     public static final int REVOLVER_ID = 20;
@@ -71,7 +71,7 @@ public class RobotMap {
 
     // Shooter
     public static final int SHOOTER_ID = 31;
-    public static final double SHOOTER_SPEED = 0.9;
+    public static final double SHOOTER_SPEED = 1.0; // 21091
     public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 1500;
 
     // Elevator Left: CAN #21
