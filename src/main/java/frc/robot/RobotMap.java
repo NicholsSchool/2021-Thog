@@ -57,6 +57,12 @@ public class RobotMap {
     public static final int PISTONS_SOLENOID_CHANNEL = 0;
     public static final double INTAKE_SPEED = 0.9;
 
+    // Limelight
+    public static final double A1 = 50.00; // degrees
+    public static final double H1 = 19.00; // inches
+    public static final double H2 = 98.25; // inches
+
+
     // Revolver
     public static final int REVOLVER_ID = 20;
     public static final double REVOLVER_SPEED = 0.3;
