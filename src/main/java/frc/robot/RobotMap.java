@@ -20,10 +20,10 @@ public class RobotMap {
 
     // Game Specific
     public static final double GREEN_ZONE_MIN = 0.0;
-    public static final double GREEN_ZONE_DISTANCE = 5.0;
-    public static final double GREEN_ZONE_MAX = 7.5;
+    public static final double GREEN_ZONE_DISTANCE = 5.0; // 60 inches
+    public static final double GREEN_ZONE_MAX = 7.5; // 90 inches
     public static final double YELLOW_ZONE_MIN = 7.5;
-    public static final double YELLOW_ZONE_DISTANCE = 10.0;
+    public static final double YELLOW_ZONE_DISTANCE = 10.0; // 120 inches
     public static final double YELLOW_ZONE_MAX = 12.5;
     public static final double BLUE_ZONE_MIN = 12.5;
     public static final double BLUE_ZONE_DISTANCE = 15.0;
@@ -56,6 +56,11 @@ public class RobotMap {
     public static final int RIGHT_INTAKE_ID = 41;
     public static final int PISTONS_SOLENOID_CHANNEL = 0;
     public static final double INTAKE_SPEED = 0.9;
+
+    // Limelight
+    public static final double A1 = 40.00; // angle of limelight lens from ground plane
+    public static final double H1 = 19.00; // hight from floor to limelight lens
+    public static final double H2 = 97.25; // hight from floor to middle of target
 
     // Revolver
     public static final int REVOLVER_ID = 20;

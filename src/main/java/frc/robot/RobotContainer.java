@@ -1,7 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
-import frc.robot.util.XboxController;
+import frc.robot.util.*;
 import frc.robot.commands.*;
 import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
@@ -33,7 +33,10 @@ public class RobotContainer {
     // Sensors
     public static LimitSwitch limitSwitch;
     public static Potentiometer potentiometer;
+
+    // Limelight
     public static LimeLight limelight;
+    public static LLDistance llDistance;
 
     public RobotContainer() {
 
@@ -54,6 +57,7 @@ public class RobotContainer {
         limitSwitch = new LimitSwitch();
         potentiometer = new Potentiometer();
         limelight = new LimeLight();
+        llDistance = new LLDistance();
 
         configureButtonBindings();
     }
@@ -96,10 +100,12 @@ public class RobotContainer {
     }
 
     public void getRobotState() {
-        Robot.state.put("LS", limitSwitch.get());
-        Robot.state.put("Pot", potentiometer.getAngle());
-        Robot.state.put("V", shooter.getVelocity());
-        Robot.state.put("LL", limelight.getdegRotationToTarget());
+        // Robot.state.put("LS", limitSwitch.get());
+        // Robot.state.put("Pot", potentiometer.getAngle());
+        // Robot.state.put("V", shooter.getVelocity());
+        Robot.state.put("LL-XA", limelight.getdegRotationToTarget());
+        // Robot.state.put("LL-YA", limelight.getdegVerticalToTarget() + RobotMap.A1);
+        Robot.state.put("LL-D", llDistance.getDistance());
         System.out.println(Robot.state);
     }
 }
