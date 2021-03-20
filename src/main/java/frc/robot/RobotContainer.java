@@ -33,6 +33,7 @@ public class RobotContainer {
     // Sensors
     public static LimitSwitch limitSwitch;
     public static Potentiometer potentiometer;
+    public static LimeLight limelight;
 
     public RobotContainer() {
 
@@ -52,6 +53,7 @@ public class RobotContainer {
         // Instatiate Sensors
         limitSwitch = new LimitSwitch();
         potentiometer = new Potentiometer();
+        limelight = new LimeLight();
 
         configureButtonBindings();
     }
@@ -96,7 +98,8 @@ public class RobotContainer {
     public void getRobotState() {
         Robot.state.put("LS", limitSwitch.get());
         Robot.state.put("Pot", potentiometer.getAngle());
-        Robot.state.put("Velocity", shooter.getVelocity());
+        Robot.state.put("V", shooter.getVelocity());
+        Robot.state.put("LL", limelight.getdegRotationToTarget());
         System.out.println(Robot.state);
     }
 }
