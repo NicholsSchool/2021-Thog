@@ -8,20 +8,20 @@ import frc.robot.RobotMap;
 
 public class Flapper extends SubsystemBase {
 
-    private CANSparkMax ballLift;
+    private CANSparkMax flapper;
 
     public Flapper() {
-        ballLift = new CANSparkMax(RobotMap.FLAPPER_ID, MotorType.kBrushless);
-        ballLift.restoreFactoryDefaults();
-        ballLift.setIdleMode(IdleMode.kBrake);
-        ballLift.setInverted(true);
+        flapper = new CANSparkMax(RobotMap.FLAPPER_ID, MotorType.kBrushless);
+        flapper.restoreFactoryDefaults();
+        flapper.setIdleMode(IdleMode.kBrake);
+        flapper.setInverted(true);
     }
 
     public void move(double speed) {
-        ballLift.set(speed);
+        flapper.set(speed);
     }
 
     public void stop() {
-        ballLift.stopMotor();
+        flapper.stopMotor();
     }
 }

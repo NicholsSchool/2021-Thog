@@ -18,37 +18,39 @@ public class RobotMap {
     // General
     public static final int PCM_CAN_ID = 51;
 
-    // Game Specific
-    public static final double GREEN_ZONE_MIN = 0.0;
-    public static final double GREEN_ZONE_DISTANCE = 5.0; // 60 inches
-    public static final double GREEN_ZONE_MAX = 7.5; // 90 inches
-    public static final double YELLOW_ZONE_MIN = 7.5;
-    public static final double YELLOW_ZONE_DISTANCE = 10.0; // 120 inches
-    public static final double YELLOW_ZONE_MAX = 12.5;
-    public static final double BLUE_ZONE_MIN = 12.5;
-    public static final double BLUE_ZONE_DISTANCE = 15.0;
-    public static final double BLUE_ZONE_MAX = 17.5;
-    public static final double RED_ZONE_MIN = 17.5;
-    public static final double RED_ZONE_DISTANCE = 20.0;
-    public static final double RED_ZONE_MAX = 22.5;
+    // Zone Specific Info
+    public static final int GREEN_ZONE_MIN = 0;
+    public static final int GREEN_ZONE_MAX = 90;
+    public static final int YELLOW_ZONE_MIN = 90;
+    public static final int YELLOW_ZONE_MAX = 150;
+    public static final int BLUE_ZONE_MIN = 150;
+    public static final int BLUE_ZONE_MAX = 210;
+    public static final int RED_ZONE_MIN = 210;
+    public static final int RED_ZONE_MAX = 270;
+
+    // Known Distances (X marks the spot)
+    public static final int GREEN_ZONE_D = 60; // 5ft
+    public static final int YELLOW_ZONE_D = 120; // 10ft
+    public static final int BLUE_ZONE_D = 180; // 15ft
+    public static final int RED_ZONE_D = 240; // 20ft
 
     // Hood
     public static final int HOOD_ID = 42;
-    public static final double HOOD_SPEED = 0.05;
-    public static final double HOOD_ANGLE_THRESHOLD = 3;
-    public static final double HOOD_MAX_RETRACTED_ANGLE = 95;
-    public static final double HOOD_ANGLE_GREEN_ZONE = 90; // 5 ft
-    public static final double HOOD_ANGLE_YELLOW_ZONE = 75; // 10ft
-    public static final double HOOD_ANGLE_BLUE_ZONE = 60; // 15ft
-    public static final double HOOD_ANGLE_RED_ZONE = 45; // 20ft
-    public static final double HOOD_MAX_EXTENDED_ANGLE = 40;
-    public static final double[] HOOD_ANGLE_ARRAY = {
-        HOOD_MAX_RETRACTED_ANGLE,
-        HOOD_ANGLE_GREEN_ZONE,
-        HOOD_ANGLE_YELLOW_ZONE,
-        HOOD_ANGLE_BLUE_ZONE,
-        HOOD_ANGLE_RED_ZONE,
-        HOOD_MAX_EXTENDED_ANGLE
+    public static final double HOOD_SPEED = 0.1;
+    public static final double HOOD_ANGLE_THRESHOLD = 2;
+    public static final int HOOD_POSITION_0 = 269;
+    public static final int HOOD_POSITION_1 = 255;
+    public static final int HOOD_POSITION_2 = 240;
+    public static final int HOOD_POSITION_3 = 225;
+    public static final int HOOD_POSITION_4 = 210;
+    public static final int HOOD_POSITION_5 = 195;
+    public static int[] HOOD_POSITION = {
+        HOOD_POSITION_0,
+        HOOD_POSITION_1,
+        HOOD_POSITION_2,
+        HOOD_POSITION_3,
+        HOOD_POSITION_4,
+        HOOD_POSITION_5
     };
 
     // Intake
@@ -58,9 +60,9 @@ public class RobotMap {
     public static final double INTAKE_SPEED = 0.9;
 
     // Limelight
-    public static final double A1 = 40.00; // angle of limelight lens from ground plane
-    public static final double H1 = 19.00; // hight from floor to limelight lens
-    public static final double H2 = 97.25; // hight from floor to middle of target
+    public static final double A1 = 28.90; // angle of limelight lens from ground plane
+    public static final double H1 = 20.10; // hight from floor to limelight lens
+    public static final double H2 = 98.25; // hight from floor to middle of target
 
     // Revolver
     public static final int REVOLVER_ID = 20;
@@ -77,7 +79,7 @@ public class RobotMap {
     // Shooter
     public static final int SHOOTER_ID = 31;
     public static final double SHOOTER_SPEED = 1.0; // 21091
-    public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 1500;
+    public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 19500;
 
     // Elevator Left: CAN #21
     // Elevator Right: CAN #22

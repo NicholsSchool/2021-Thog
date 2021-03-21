@@ -36,7 +36,7 @@ public class RobotContainer {
 
     // Limelight
     public static LimeLight limelight;
-    public static LLDistance llDistance;
+    public static LLUtils llutils; // Limelight Utility Functions
 
     public RobotContainer() {
 
@@ -57,7 +57,7 @@ public class RobotContainer {
         limitSwitch = new LimitSwitch();
         potentiometer = new Potentiometer();
         limelight = new LimeLight();
-        llDistance = new LLDistance();
+        llutils = new LLUtils();
 
         configureButtonBindings();
     }
@@ -85,14 +85,14 @@ public class RobotContainer {
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
         // c1.lTrigger.whileHeld(); // Use Limelight for alignment, distance, etc.
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
-        c1.rTrigger.whenPressed(new ResetHood());
+        // c1.rTrigger.whenPressed(new ResetHood()); // bad Neo ???
         c1.rTrigger.whileHeld(new CloseShot());
         c1.rTrigger.whenReleased(new ResetFlapper());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.lBumper.whenReleased(new ResetFlapper());
         c1.rBumper.whileHeld(new SpinShooter());
-        c1.y.whenPressed(new ExtendHood());
-        c1.x.whenPressed(new RetractHood());
+        // c1.y.whileHeld(new ExtendHood());
+        // c1.x.whileHeld(new RetractHood()); 
         c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
@@ -103,9 +103,9 @@ public class RobotContainer {
         // Robot.state.put("LS", limitSwitch.get());
         // Robot.state.put("Pot", potentiometer.getAngle());
         // Robot.state.put("V", shooter.getVelocity());
-        Robot.state.put("LL-XA", limelight.getdegRotationToTarget());
-        // Robot.state.put("LL-YA", limelight.getdegVerticalToTarget() + RobotMap.A1);
-        Robot.state.put("LL-D", llDistance.getDistance());
+        // Robot.state.put("LL-XA", llutils.getXtoTarget());
+        // Robot.state.put("LL-YA", llutils.getYtoTarget());
+        // Robot.state.put("LL-D", llutils.getDistanceRounded());
         System.out.println(Robot.state);
     }
 }

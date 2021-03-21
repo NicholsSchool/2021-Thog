@@ -15,7 +15,7 @@ public class ResetHood extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.hood.move(RobotMap.HOOD_SPEED);
+        RobotContainer.hood.move(-RobotMap.HOOD_SPEED);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class ResetHood extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return (RobotContainer.potentiometer.getAngle() > RobotMap.HOOD_MAX_RETRACTED_ANGLE) ? false : true;
+        return (RobotContainer.potentiometer.getAngle() > (RobotMap.HOOD_POSITION_0 - RobotMap.HOOD_ANGLE_THRESHOLD)) ? true : false;
     }
 }
