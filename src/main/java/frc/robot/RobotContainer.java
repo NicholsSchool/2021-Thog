@@ -68,8 +68,9 @@ public class RobotContainer {
         c0 = new XboxController(0);
         c1 = new XboxController(1);
 
-        // Setup Tank Drive
+        // Setup Default Commands
         driveTrain.setDefaultCommand(new Drive());
+        flapper.setDefaultCommand(new ResetFlapper());
 
         // First Controller
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
@@ -87,9 +88,7 @@ public class RobotContainer {
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         // c1.rTrigger.whenPressed(new ResetHood()); // bad Neo ???
         c1.rTrigger.whileHeld(new CloseShot());
-        c1.rTrigger.whenReleased(new ResetFlapper());
         c1.lBumper.whileHeld(new RotateFlapper());
-        c1.lBumper.whenReleased(new ResetFlapper());
         c1.rBumper.whileHeld(new SpinShooter());
         // c1.y.whileHeld(new ExtendHood());
         // c1.x.whileHeld(new RetractHood()); 
@@ -100,7 +99,7 @@ public class RobotContainer {
     }
 
     public void getRobotState() {
-        // Robot.state.put("LS", limitSwitch.get());
+        Robot.state.put("LS", limitSwitch.get());
         // Robot.state.put("Pot", potentiometer.getAngle());
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());

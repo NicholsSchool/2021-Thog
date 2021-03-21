@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
+import frc.robot.Robot;
 
 public class ResetFlapper extends CommandBase {
 
@@ -15,7 +16,11 @@ public class ResetFlapper extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.flapper.move(RobotMap.FLAPPER_RESET_SPEED);
+        if (RobotContainer.limitSwitch.get()) {
+            RobotContainer.flapper.stop();
+        } else {
+            RobotContainer.flapper.move(RobotMap.FLAPPER_RESET_SPEED);
+        }
     }
 
     @Override
@@ -25,6 +30,6 @@ public class ResetFlapper extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return RobotContainer.limitSwitch.get();
+        return false;
     }
 }
