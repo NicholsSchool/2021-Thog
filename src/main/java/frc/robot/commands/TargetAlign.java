@@ -9,9 +9,9 @@ public class TargetAlign extends CommandBase {
         addRequirements(RobotContainer.driveTrain);
     }
 
-    private double Kp = -0.1;
-    private double spin_rate = 0.3;
-    private double spin_min = 0.05;
+    private double Kp       = -0.013;
+    private double spin_rate = 0.195;
+    private double spin_min  = 0.085;
 
     @Override
     public void initialize() {}
@@ -22,12 +22,12 @@ public class TargetAlign extends CommandBase {
         double heading_adjust = heading_error * Kp;
         if (heading_error > 1.0){
             heading_adjust = heading_adjust - spin_min;
-        } else {
+        } else if (heading_error < 1.0) {
             heading_adjust = heading_adjust + spin_min;
         }
         RobotContainer.driveTrain.move(
-            spin_rate + heading_adjust,
-            spin_rate - heading_adjust
+            spin_rate - heading_adjust,
+            spin_rate + heading_adjust
         );
     }
 

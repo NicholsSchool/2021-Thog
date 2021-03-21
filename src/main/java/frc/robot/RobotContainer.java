@@ -84,7 +84,7 @@ public class RobotContainer {
 
         // Second Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
-        // c1.lTrigger.whileHeld(); // Use Limelight for alignment, distance, etc.
+        c1.lTrigger.whileHeld(new TargetAlign()); // Use Limelight for alignment, distance, etc.
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         // c1.rTrigger.whenPressed(new ResetHood()); // bad Neo ???
         c1.rTrigger.whileHeld(new CloseShot());
@@ -99,7 +99,7 @@ public class RobotContainer {
     }
 
     public void getRobotState() {
-        Robot.state.put("LS", limitSwitch.get());
+        // Robot.state.put("LS", limitSwitch.get());
         // Robot.state.put("Pot", potentiometer.getAngle());
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());

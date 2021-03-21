@@ -15,10 +15,12 @@ public class Drive extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.driveTrain.move(
-            RobotContainer.c0.getLeftY() * RobotMap.GOVERNOR, 
-            RobotContainer.c0.getRightY() * RobotMap.GOVERNOR
-        );
+        if (RobotContainer.driveTrain.enabled) {
+            RobotContainer.driveTrain.move(
+                RobotContainer.c0.getLeftY() * RobotMap.GOVERNOR, 
+                RobotContainer.c0.getRightY() * RobotMap.GOVERNOR
+            );
+        }
     }
 
     @Override

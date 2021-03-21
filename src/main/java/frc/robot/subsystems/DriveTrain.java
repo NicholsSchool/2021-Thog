@@ -16,7 +16,7 @@ public class DriveTrain extends SubsystemBase {
     private WPI_TalonFX rSlav;
 
     private DifferentialDrive drive;
-    private boolean enabled = true;
+    public boolean enabled = true;
 
     public DriveTrain() {
         lMaster = new WPI_TalonFX(RobotMap.LEFT_MASTER_ID);
@@ -44,9 +44,7 @@ public class DriveTrain extends SubsystemBase {
     }
 
     public void move(double leftSpeed, double rightSpeed) {
-        if (enabled) {
             drive.tankDrive(leftSpeed, rightSpeed);
-        }
     }
 
     public void stop() {
