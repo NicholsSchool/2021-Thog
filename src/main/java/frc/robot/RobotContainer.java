@@ -84,14 +84,14 @@ public class RobotContainer {
 
         // Second Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
-        c1.lTrigger.whileHeld(new TargetAlign()); // Use Limelight for alignment, distance, etc.
+        c1.lTrigger.whileHeld(new TargetAlign());
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
-        // c1.rTrigger.whenPressed(new ResetHood()); // bad Neo ???
+        // c1.rTrigger.whenPressed(new ResetHood());
         c1.rTrigger.whileHeld(new CloseShot());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.rBumper.whileHeld(new SpinShooter());
-        // c1.y.whileHeld(new ExtendHood());
-        // c1.x.whileHeld(new RetractHood()); 
+        c1.y.whileHeld(new ExtendHood()); // Possible bad motor
+        c1.x.whileHeld(new RetractHood());
         c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
@@ -100,11 +100,11 @@ public class RobotContainer {
 
     public void getRobotState() {
         // Robot.state.put("LS", limitSwitch.get());
-        // Robot.state.put("Pot", potentiometer.getAngle());
+        Robot.state.put("Pot", potentiometer.getRoundedValues());
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());
         // Robot.state.put("LL-YA", llutils.getYtoTarget());
-        // Robot.state.put("LL-D", llutils.getDistanceRounded());
+        Robot.state.put("LL-Dist", llutils.getDistanceRounded());
         System.out.println(Robot.state);
     }
 }
