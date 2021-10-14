@@ -96,6 +96,9 @@ public class RobotContainer {
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
         c1.b.whileHeld(new SpinRevolver());
+
+        // Can hood? 
+        c0.x.whenPressed( new InstantCommand(() -> hood.toggleCanHood()));
     }
 
     public void getRobotState() {

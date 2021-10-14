@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class Hood extends SubsystemBase {
@@ -22,5 +23,10 @@ public class Hood extends SubsystemBase {
 
     public void stop() {
         hood.stopMotor();
+    }
+
+    public void toggleCanHood() {
+
+        Robot.canHood = !Robot.canHood;
     }
 }
