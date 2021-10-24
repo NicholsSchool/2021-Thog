@@ -21,8 +21,9 @@ public class RobotContainer {
     public static Compressor compressor;
 
     // Subsystems
-    public static Flapper flapper;
+    public static Climber climber;
     public static DriveTrain driveTrain;
+    public static Flapper flapper;
     public static Intake intake;
     public static Pistons pistons;
     public static Turntable turntable;
@@ -42,6 +43,7 @@ public class RobotContainer {
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
         // Instatiate Subsystems
+        climber = new Climber();
         driveTrain = new DriveTrain();
         flapper = new Flapper();
         intake = new Intake();
@@ -77,7 +79,7 @@ public class RobotContainer {
 
         // Operator Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
-        c1.lTrigger.whileHeld(new TargetAlign());
+        c1.lTrigger.whileHeld(new AlignToTarget());
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         c1.rTrigger.whileHeld(new ShootBall());
         c1.a.whileHeld(new RotateFlapper());

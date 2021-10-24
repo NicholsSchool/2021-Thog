@@ -2,11 +2,9 @@ package frc.robot;
 
 public class RobotMap {
 
-    // Flapper
-    public static final int FLAPPER_ID = 43;
-    public static final double FLAPPER_SPEED = 1.0;
-    public static final int FLAPPER_LINEAR_VAR = 33;
-    public static final double FLAPPER_RESET_SPEED = 0.1;
+    // Climber
+    public static final int CLIMBER_ID = 49;
+    public static final double CLIMBER_SPEED = 0.75;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33;
@@ -15,6 +13,12 @@ public class RobotMap {
     public static final int RIGHT_SLAVE_ID = 30;
     public static final int SHIFTER_SOLENOID_CHANNEL = 1;
     public static final double GOVERNOR = 1.0;
+
+    // Flapper
+    public static final int FLAPPER_ID = 43;
+    public static final double FLAPPER_SPEED = 1.0;
+    public static final int FLAPPER_LINEAR_VAR = 33;
+    public static final double FLAPPER_RESET_SPEED = 0.1;
 
     // General
     public static final int PCM_CAN_ID = 51;
@@ -51,7 +55,7 @@ public class RobotMap {
     // Elevator Left: CAN #21
     // Elevator Right: CAN #22
     // Spare Talon: CAN #29
-    // Spare SparkMax: CAN #49
+    // Spare SparkMax: CAN #49 // Use for Climber ???
     // Power Distribution Panel: CAN #50
 
 }

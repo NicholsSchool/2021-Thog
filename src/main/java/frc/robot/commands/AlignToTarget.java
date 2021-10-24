@@ -3,9 +3,9 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-public class TargetAlign extends CommandBase {
+public class AlignToTarget extends CommandBase {
 
-    public TargetAlign() {
+    public AlignToTarget() {
         addRequirements(RobotContainer.driveTrain);
     }
 
