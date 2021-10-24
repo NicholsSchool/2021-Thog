@@ -2,11 +2,9 @@ package frc.robot;
 
 public class RobotMap {
 
-    // Flapper
-    public static final int FLAPPER_ID = 43;
-    public static final double FLAPPER_SPEED = 1.0;
-    public static final int FLAPPER_LINEAR_VAR = 33;
-    public static final double FLAPPER_RESET_SPEED = 0.1;
+    // Climber
+    public static final int CLIMBER_ID = 49;
+    public static final double CLIMBER_SPEED = 0.85;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33;
@@ -14,7 +12,13 @@ public class RobotMap {
     public static final int RIGHT_MASTER_ID = 34;
     public static final int RIGHT_SLAVE_ID = 30;
     public static final int SHIFTER_SOLENOID_CHANNEL = 1;
-    public static final double GOVERNOR = 1.0;
+    public static final double GOVERNOR = 0.85;
+
+    // Flapper
+    public static final int FLAPPER_ID = 43;
+    public static final double FLAPPER_SPEED = 1.0;
+    public static final int FLAPPER_LINEAR_VAR = 33;
+    public static final double FLAPPER_RESET_SPEED = 0.1;
 
     // General
     public static final int PCM_CAN_ID = 51;
@@ -30,12 +34,6 @@ public class RobotMap {
     public static final double H1 = 20.10; // hight from floor to limelight lens
     public static final double H2 = 98.25; // hight from floor to middle of target
 
-    // Turntable
-    public static final int TURNTABLE_ID = 20;
-    public static final double TURNTABLE_SPEED = 0.3;
-    public static final double CLOCKWISE = 1.0;
-    public static final double COUNTER_CLOCKWISE = -1.0;
-
     // Sensors
     public static final int LIMIT_SWITCH_ID = 0;
     public static final int POTENTIOMETER_ID = 0;
@@ -44,14 +42,20 @@ public class RobotMap {
 
     // Shooter
     public static final int SHOOTER_ID = 31;
-    public static final double SHOOTER_SPEED = 1.0; // 21091
-    public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 19500;
+    public static final double SHOOTER_SPEED = 1.0; 
+    public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 19500; // Top velocity: ~21091
+
+    // Turntable
+    public static final int TURNTABLE_ID = 20;
+    public static final double TURNTABLE_SPEED = 0.3;
+    public static final double CLOCKWISE = 1.0;
+    public static final double COUNTER_CLOCKWISE = -1.0;
 
     // Hood SparkMax: CAN #42
     // Elevator Left: CAN #21
     // Elevator Right: CAN #22
     // Spare Talon: CAN #29
-    // Spare SparkMax: CAN #49
+    // Spare SparkMax: CAN #49 // Use for Climber ???
     // Power Distribution Panel: CAN #50
 
 }

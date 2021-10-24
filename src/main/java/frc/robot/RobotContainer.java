@@ -21,8 +21,9 @@ public class RobotContainer {
     public static Compressor compressor;
 
     // Subsystems
-    public static Flapper flapper;
+    public static Climber climber;
     public static DriveTrain driveTrain;
+    public static Flapper flapper;
     public static Intake intake;
     public static Pistons pistons;
     public static Turntable turntable;
@@ -34,7 +35,7 @@ public class RobotContainer {
 
     // Limelight
     public static LimeLight limelight;
-    public static LLUtils llutils; // Limelight Utility Functions
+    public static LLUtils llutils;
 
     public RobotContainer() {
 
@@ -42,6 +43,7 @@ public class RobotContainer {
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
         // Instatiate Subsystems
+        climber = new Climber();
         driveTrain = new DriveTrain();
         flapper = new Flapper();
         intake = new Intake();
@@ -55,14 +57,14 @@ public class RobotContainer {
         limelight = new LimeLight();
         llutils = new LLUtils();
 
+        // Instatiate Controllers
+        c0 = new XboxController(0);
+        c1 = new XboxController(1);
+
         configureButtonBindings();
     }
 
     private void configureButtonBindings() {
-
-        // Controllers
-        c0 = new XboxController(0);
-        c1 = new XboxController(1);
 
         // Setup Default Commands
         driveTrain.setDefaultCommand(new Drive());
@@ -72,12 +74,12 @@ public class RobotContainer {
         c0.rTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c0.rTrigger.whileHeld(new RunIntake());
         c0.rTrigger.whenReleased(new InstantCommand(() -> pistons.toggle()));
-        c0.lTrigger.whenPressed(new InstantCommand(() -> shifter.lowGear()));
-        c0.lTrigger.whenReleased(new InstantCommand(() -> shifter.highGear()));
+        c0.lTrigger.whenPressed(new InstantCommand(() -> shifter.highGear()));
+        c0.lTrigger.whenReleased(new InstantCommand(() -> shifter.lowGear()));
 
         // Operator Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
-        c1.lTrigger.whileHeld(new TargetAlign());
+        c1.lTrigger.whileHeld(new AlignToTarget());
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         c1.rTrigger.whileHeld(new ShootBall());
         c1.a.whileHeld(new RotateFlapper());

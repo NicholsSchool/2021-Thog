@@ -3,6 +3,11 @@ package frc.robot.util;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
+ /*
+    Limelight Utility Functions
+    Author: Jon Kiddy
+    Initial Development Date: 2021-02-23
+ */
 public class LLUtils {
 
     /*
