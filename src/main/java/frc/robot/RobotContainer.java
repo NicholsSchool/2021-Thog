@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class RobotContainer {
 
     // Shorthand Constants
-    private static final boolean CW = RobotMap.CLOCKWISE;
-    private static final boolean CCW = RobotMap.COUNTER_CLOCKWISE;
+    private static final double CW = RobotMap.CLOCKWISE;
+    private static final double CCW = RobotMap.COUNTER_CLOCKWISE;
 
     // Controllers
     public static XboxController c0;
@@ -25,7 +25,7 @@ public class RobotContainer {
     public static DriveTrain driveTrain;
     public static Intake intake;
     public static Pistons pistons;
-    public static Revolver revolver;
+    public static Turntable turntable;
     public static Shifter shifter;
     public static Shooter shooter;
 
@@ -45,7 +45,7 @@ public class RobotContainer {
         driveTrain = new DriveTrain();
         flapper = new Flapper();
         intake = new Intake();
-        revolver = new Revolver();
+        turntable = new Turntable();
         shooter = new Shooter();
         pistons = new Pistons();
         shifter = new Shifter();
@@ -70,13 +70,13 @@ public class RobotContainer {
 
         // First Controller
         c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
-        c0.rTrigger.whileHeld(new RunIntake()); // Possible bad motor
+        c0.rTrigger.whileHeld(new RunIntake());
         c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
         c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
-        c0.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
-        c0.a.whileHeld(new SpinRevolver());
-        c0.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
-        c0.b.whileHeld(new SpinRevolver());
+        c0.a.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
+        c0.a.whileHeld(new SpinTurntable());
+        c0.b.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
+        c0.b.whileHeld(new SpinTurntable());
 
         // Second Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
@@ -85,10 +85,10 @@ public class RobotContainer {
         c1.rTrigger.whileHeld(new CloseShot());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.rBumper.whileHeld(new SpinShooter());
-        c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
-        c1.a.whileHeld(new SpinRevolver());
-        c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
-        c1.b.whileHeld(new SpinRevolver());
+        c1.a.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
+        c1.a.whileHeld(new SpinTurntable());
+        c1.b.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
+        c1.b.whileHeld(new SpinTurntable());
     }
 
     public void getRobotState() {

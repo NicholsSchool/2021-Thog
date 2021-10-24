@@ -30,11 +30,11 @@ public class RobotMap {
     public static final double H1 = 20.10; // hight from floor to limelight lens
     public static final double H2 = 98.25; // hight from floor to middle of target
 
-    // Revolver
-    public static final int REVOLVER_ID = 20;
-    public static final double REVOLVER_SPEED = 0.3;
-    public static final boolean CLOCKWISE = true;
-    public static final boolean COUNTER_CLOCKWISE = !CLOCKWISE;
+    // Turntable
+    public static final int TURNTABLE_ID = 20;
+    public static final double TURNTABLE_SPEED = 0.3;
+    public static final double CLOCKWISE = 1.0;
+    public static final double COUNTER_CLOCKWISE = -1.0;
 
     // Sensors
     public static final int LIMIT_SWITCH_ID = 0;

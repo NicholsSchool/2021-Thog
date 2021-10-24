@@ -9,7 +9,7 @@ public class CloseShot extends CommandBase {
     public CloseShot() {
         addRequirements(RobotContainer.shooter);
         addRequirements(RobotContainer.flapper);
-        addRequirements(RobotContainer.revolver);
+        addRequirements(RobotContainer.turntable);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class CloseShot extends CommandBase {
         RobotContainer.shooter.move(RobotMap.SHOOTER_SPEED);
         if (RobotContainer.shooter.getVelocity() > RobotMap.SHOOTER_MIN_VELOCITY_THRESHOLD) {
             RobotContainer.flapper.move(RobotMap.FLAPPER_SPEED);
-            RobotContainer.revolver.move(RobotMap.REVOLVER_SPEED);
+            RobotContainer.turntable.move(RobotMap.TURNTABLE_SPEED);
         }
     }
 
@@ -28,7 +28,7 @@ public class CloseShot extends CommandBase {
     public void end(boolean interrupted) {
         RobotContainer.shooter.stop();
         RobotContainer.flapper.stop();
-        RobotContainer.revolver.stop();
+        RobotContainer.turntable.stop();
     }
 
     @Override
