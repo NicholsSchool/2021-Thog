@@ -35,7 +35,7 @@ public class RobotContainer {
 
     // Limelight
     public static LimeLight limelight;
-    public static LLUtils llutils; // Limelight Utility Functions
+    public static LLUtils llutils;
 
     public RobotContainer() {
 
