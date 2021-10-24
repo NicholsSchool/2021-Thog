@@ -96,7 +96,8 @@ public class RobotContainer {
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());
         // Robot.state.put("LL-YA", llutils.getYtoTarget());
-        Robot.state.put("LL-Dist", llutils.getDistanceRounded());
+        Robot.state.put("LL-Target-Acquired", llutils.getIsTargetFound());
+        Robot.state.put("LL-Distance-To-Target", llutils.getDistanceRounded());
         System.out.println(Robot.state);
     }
 }
