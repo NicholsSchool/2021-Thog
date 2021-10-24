@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class CloseShot extends CommandBase {
+public class ShootBall extends CommandBase {
     
-    public CloseShot() {
+    public ShootBall() {
         addRequirements(RobotContainer.shooter);
         addRequirements(RobotContainer.flapper);
         addRequirements(RobotContainer.turntable);
@@ -20,7 +20,9 @@ public class CloseShot extends CommandBase {
         RobotContainer.shooter.move(RobotMap.SHOOTER_SPEED);
         if (RobotContainer.shooter.getVelocity() > RobotMap.SHOOTER_MIN_VELOCITY_THRESHOLD) {
             RobotContainer.flapper.move(RobotMap.FLAPPER_SPEED);
-            RobotContainer.turntable.move(RobotMap.TURNTABLE_SPEED);
+            if (RobotContainer.flapper.ready()) {
+                RobotContainer.turntable.move(RobotMap.TURNTABLE_SPEED);
+            }
         }
     }
 

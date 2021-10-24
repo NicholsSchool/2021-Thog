@@ -28,4 +28,12 @@ public class Flapper extends SubsystemBase {
         flapper.stopMotor();
         i = RobotMap.FLAPPER_LINEAR_VAR;
     }
+
+    public boolean ready() {
+        if (i == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

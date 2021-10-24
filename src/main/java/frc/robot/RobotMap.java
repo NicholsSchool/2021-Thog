@@ -4,8 +4,8 @@ public class RobotMap {
 
     // Flapper
     public static final int FLAPPER_ID = 43;
-    public static final double FLAPPER_SPEED = 0.4;
-    public static final int FLAPPER_LINEAR_VAR = 20;
+    public static final double FLAPPER_SPEED = 1.0;
+    public static final int FLAPPER_LINEAR_VAR = 33;
     public static final double FLAPPER_RESET_SPEED = 0.1;
 
     // DriveTrain

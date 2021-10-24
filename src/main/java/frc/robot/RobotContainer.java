@@ -68,27 +68,23 @@ public class RobotContainer {
         driveTrain.setDefaultCommand(new Drive());
         flapper.setDefaultCommand(new ResetFlapper());
 
-        // First Controller
-        c0.lTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
+        // Driver Controller
+        c0.rTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c0.rTrigger.whileHeld(new RunIntake());
-        c0.lBumper.whenPressed(new InstantCommand(() -> shifter.lowGear()));
-        c0.rBumper.whenPressed(new InstantCommand(() -> shifter.highGear()));
-        c0.a.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
-        c0.a.whileHeld(new SpinTurntable());
-        c0.b.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
-        c0.b.whileHeld(new SpinTurntable());
+        c0.rTrigger.whenReleased(new InstantCommand(() -> pistons.toggle()));
+        c0.lTrigger.whenPressed(new InstantCommand(() -> shifter.lowGear()));
+        c0.lTrigger.whenReleased(new InstantCommand(() -> shifter.highGear()));
 
-        // Second Controller
+        // Operator Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
         c1.lTrigger.whileHeld(new TargetAlign());
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
-        c1.rTrigger.whileHeld(new CloseShot());
-        c1.lBumper.whileHeld(new RotateFlapper());
-        c1.rBumper.whileHeld(new SpinShooter());
-        c1.a.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
-        c1.a.whileHeld(new SpinTurntable());
-        c1.b.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
-        c1.b.whileHeld(new SpinTurntable());
+        c1.rTrigger.whileHeld(new ShootBall());
+        c1.a.whileHeld(new RotateFlapper());
+        c1.lBumper.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
+        c1.lBumper.whileHeld(new SpinTurntable());
+        c1.rBumper.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
+        c1.rBumper.whileHeld(new SpinTurntable());
     }
 
     public void getRobotState() {
