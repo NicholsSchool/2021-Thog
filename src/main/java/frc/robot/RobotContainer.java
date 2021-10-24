@@ -57,19 +57,19 @@ public class RobotContainer {
         limelight = new LimeLight();
         llutils = new LLUtils();
 
+        // Controllers
+        c0 = new XboxController(0);
+        c1 = new XboxController(1);
+
         configureButtonBindings();
     }
 
     private void configureButtonBindings() {
 
-        // Controllers
-        c0 = new XboxController(0);
-        c1 = new XboxController(1);
-
         // Setup Default Commands
         driveTrain.setDefaultCommand(new Drive());
         flapper.setDefaultCommand(new ResetFlapper());
-
+        
         // Driver Controller
         c0.rTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c0.rTrigger.whileHeld(new RunIntake());
