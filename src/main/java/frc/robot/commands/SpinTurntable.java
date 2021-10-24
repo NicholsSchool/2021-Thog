@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
-public class ResetHood extends CommandBase {
+public class SpinTurntable extends CommandBase {
 
-    public ResetHood() {
-        addRequirements(RobotContainer.hood);
+    public SpinTurntable() {
+        addRequirements(RobotContainer.turntable);
     }
 
     @Override
@@ -15,16 +15,16 @@ public class ResetHood extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.hood.move(-RobotMap.HOOD_SPEED);
+        RobotContainer.turntable.move(RobotMap.TURNTABLE_SPEED);
     }
 
     @Override
     public void end(boolean interrupted) {
-        RobotContainer.hood.stop();
+        RobotContainer.turntable.stop();
     }
 
     @Override
     public boolean isFinished() {
-        return (RobotContainer.potentiometer.getAngle() > (RobotMap.HOOD_POSITION_0 - RobotMap.HOOD_ANGLE_THRESHOLD)) ? true : false;
+        return false;
     }
 }

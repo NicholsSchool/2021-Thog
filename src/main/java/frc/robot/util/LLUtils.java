@@ -16,6 +16,10 @@ public class LLUtils {
         return ((RobotMap.H2 - RobotMap.H1) / Math.tan(Math.toRadians(RobotMap.A1) + Math.toRadians(A2)));
     }
 
+    public boolean getIsTargetFound(){
+        return (boolean) RobotContainer.limelight.getIsTargetFound();
+    }
+
     public double getDistanceRounded() {
         return (double) Math.round(getDistance() * 1000d) / 1000d;
     }
