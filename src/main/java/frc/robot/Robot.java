@@ -2,13 +2,11 @@ package frc.robot;
 
 import java.util.Hashtable;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
 
   public static Hashtable<String, Object> state = new Hashtable<String, Object>();
-  public static boolean canHood = false;
   private RobotContainer robotContainer;
 
   @Override
@@ -33,8 +31,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     robotContainer.getRobotState();
-
-    SmartDashboard.putBoolean("canHood", canHood);
   }
 
   @Override

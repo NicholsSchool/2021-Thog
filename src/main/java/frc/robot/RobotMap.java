@@ -19,41 +19,6 @@ public class RobotMap {
     // General
     public static final int PCM_CAN_ID = 51;
 
-    // Zone Specific Info
-    public static final int GREEN_ZONE_MIN = 0;
-    public static final int GREEN_ZONE_MAX = 90;
-    public static final int YELLOW_ZONE_MIN = 90;
-    public static final int YELLOW_ZONE_MAX = 150;
-    public static final int BLUE_ZONE_MIN = 150;
-    public static final int BLUE_ZONE_MAX = 210;
-    public static final int RED_ZONE_MIN = 210;
-    public static final int RED_ZONE_MAX = 270;
-
-    // Known Distances (X marks the spot)
-    public static final int GREEN_ZONE_D = 60; // 5ft
-    public static final int YELLOW_ZONE_D = 120; // 10ft
-    public static final int BLUE_ZONE_D = 180; // 15ft
-    public static final int RED_ZONE_D = 240; // 20ft
-
-    // Hood
-    public static final int HOOD_ID = 42;
-    public static final double HOOD_SPEED = 0.1;
-    public static final double HOOD_ANGLE_THRESHOLD = 2;
-    public static final int HOOD_POSITION_0 = 269;
-    public static final int HOOD_POSITION_1 = 255;
-    public static final int HOOD_POSITION_2 = 240;
-    public static final int HOOD_POSITION_3 = 225;
-    public static final int HOOD_POSITION_4 = 210;
-    public static final int HOOD_POSITION_5 = 195;
-    public static int[] HOOD_POSITION = {
-        HOOD_POSITION_0,
-        HOOD_POSITION_1,
-        HOOD_POSITION_2,
-        HOOD_POSITION_3,
-        HOOD_POSITION_4,
-        HOOD_POSITION_5
-    };
-
     // Intake
     public static final int LEFT_INTAKE_ID = 40;
     public static final int RIGHT_INTAKE_ID = 41;
@@ -82,12 +47,11 @@ public class RobotMap {
     public static final double SHOOTER_SPEED = 1.0; // 21091
     public static final int SHOOTER_MIN_VELOCITY_THRESHOLD = 19500;
 
+    // Hood SparkMax: CAN #42
     // Elevator Left: CAN #21
     // Elevator Right: CAN #22
-
     // Spare Talon: CAN #29
     // Spare SparkMax: CAN #49
-
     // Power Distribution Panel: CAN #50
 
 }

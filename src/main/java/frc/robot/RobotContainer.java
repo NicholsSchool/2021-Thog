@@ -23,7 +23,6 @@ public class RobotContainer {
     // Subsystems
     public static Flapper flapper;
     public static DriveTrain driveTrain;
-    public static Hood hood;
     public static Intake intake;
     public static Pistons pistons;
     public static Revolver revolver;
@@ -32,7 +31,6 @@ public class RobotContainer {
 
     // Sensors
     public static LimitSwitch limitSwitch;
-    public static Potentiometer potentiometer;
 
     // Limelight
     public static LimeLight limelight;
@@ -46,7 +44,6 @@ public class RobotContainer {
         // Instatiate Subsystems
         driveTrain = new DriveTrain();
         flapper = new Flapper();
-        hood = new Hood();
         intake = new Intake();
         revolver = new Revolver();
         shooter = new Shooter();
@@ -55,7 +52,6 @@ public class RobotContainer {
 
         // Instatiate Sensors
         limitSwitch = new LimitSwitch();
-        potentiometer = new Potentiometer();
         limelight = new LimeLight();
         llutils = new LLUtils();
 
@@ -86,24 +82,17 @@ public class RobotContainer {
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
         c1.lTrigger.whileHeld(new TargetAlign());
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
-        // c1.rTrigger.whenPressed(new ResetHood());
         c1.rTrigger.whileHeld(new CloseShot());
         c1.lBumper.whileHeld(new RotateFlapper());
         c1.rBumper.whileHeld(new SpinShooter());
-        c1.y.whileHeld(new ExtendHood()); // Possible bad motor
-        c1.x.whileHeld(new RetractHood());
         c1.a.whenPressed(new InstantCommand(() -> revolver.setDirection(CW)));
         c1.a.whileHeld(new SpinRevolver());
         c1.b.whenPressed(new InstantCommand(() -> revolver.setDirection(CCW)));
         c1.b.whileHeld(new SpinRevolver());
-
-        // Can hood? 
-        c0.x.whenPressed( new InstantCommand(() -> hood.toggleCanHood()));
     }
 
     public void getRobotState() {
         // Robot.state.put("LS", limitSwitch.get());
-        Robot.state.put("Pot", potentiometer.getRoundedValues());
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());
         // Robot.state.put("LL-YA", llutils.getYtoTarget());
