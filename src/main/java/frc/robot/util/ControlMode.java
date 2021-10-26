@@ -1,10 +1,10 @@
-package frc.robot.sensors;
+package frc.robot.util;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
-*
+* ControlMode utility for LimeLight
 */
 public class ControlMode {
 

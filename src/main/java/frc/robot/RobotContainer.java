@@ -1,5 +1,7 @@
 package frc.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.util.*;
 import frc.robot.commands.*;
@@ -32,6 +34,8 @@ public class RobotContainer {
 
     // Sensors
     public static LimitSwitch limitSwitch;
+    public static AHRS ahrs;
+    public static NavX navX;
 
     // Limelight
     public static LimeLight limelight;
@@ -56,6 +60,7 @@ public class RobotContainer {
         limitSwitch = new LimitSwitch();
         limelight = new LimeLight();
         llutils = new LLUtils();
+        navX = new NavX(new AHRS(SPI.Port.kMXP));
 
         // Instatiate Controllers
         c0 = new XboxController(0);

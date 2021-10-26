@@ -4,7 +4,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Notifier;
-import frc.robot.sensors.ControlMode.*;
+import frc.robot.util.ControlMode.*;
 
 /**
 *   Lime Light Class was started by Corey Applegate of Team 3244

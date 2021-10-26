@@ -3,7 +3,7 @@ package frc.robot;
 public class RobotMap {
 
     // Climber
-    public static final int CLIMBER_ID = 49;
+    public static final int CLIMBER_ID = 49; // SparkMax
     public static final double CLIMBER_SPEED = 0.85;
 
     // DriveTrain
@@ -12,16 +12,15 @@ public class RobotMap {
     public static final int RIGHT_MASTER_ID = 34;
     public static final int RIGHT_SLAVE_ID = 30;
     public static final int SHIFTER_SOLENOID_CHANNEL = 1;
-    public static final double GOVERNOR = 0.85;
+    public static final double GOVERNOR_FAST = 1.0;
+    public static final double GOVERNOR_SLOW = 0.8;
+    public static double GOVERNOR = GOVERNOR_SLOW;
 
     // Flapper
     public static final int FLAPPER_ID = 43;
     public static final double FLAPPER_SPEED = 1.0;
     public static final int FLAPPER_LINEAR_VAR = 33;
     public static final double FLAPPER_RESET_SPEED = 0.1;
-
-    // General
-    public static final int PCM_CAN_ID = 51;
 
     // Intake
     public static final int LEFT_INTAKE_ID = 40;
@@ -34,8 +33,22 @@ public class RobotMap {
     public static final double H1 = 20.10; // hight from floor to limelight lens
     public static final double H2 = 98.25; // hight from floor to middle of target
 
-    // Sensors
+    // Pneumatics
+    public static final int PCM_CAN_ID = 51;
+
+    // Sensor: Limit Switch
     public static final int LIMIT_SWITCH_ID = 0;
+
+    // Sensor: NavX (DriveTrain Data)
+    public static final double METERS_PER_INCH = 0.023;
+    public static final double DRIVE_TICKS_PER_REV = 4096;
+    public static final double DRIVE_WHEEL_DIAMETER = 4.0; // inches
+    public static final double INCHES_PER_TICK = Math.PI * DRIVE_WHEEL_DIAMETER / DRIVE_TICKS_PER_REV;
+    public static final double METERS_PER_TICK = INCHES_PER_TICK * METERS_PER_INCH;
+    public static final int AUTO_TURN_TOLERANCE = 3;
+    public static final double AUTO_DRIVE_TOLERANCE = 3 / INCHES_PER_TICK;
+
+    // Sensor: Potentiometer
     public static final int POTENTIOMETER_ID = 0;
     public static final int POTENTIOMETER_TURNS = 1;
     public static final int POTENTIOMETER_DEGREES_PER_TURN = 270;
