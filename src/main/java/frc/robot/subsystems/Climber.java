@@ -1,19 +1,18 @@
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANSparkMax.IdleMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 public class Climber extends SubsystemBase {
 
-    private CANSparkMax climber;
+    private WPI_TalonSRX climber;
 
     public Climber() {
-        climber = new CANSparkMax(RobotMap.CLIMBER_ID, MotorType.kBrushless);
-        climber.restoreFactoryDefaults();
-        climber.setIdleMode(IdleMode.kBrake);
+        climber = new WPI_TalonSRX(RobotMap.CLIMBER_ID);
+        climber.configFactoryDefault();
+        climber.setNeutralMode(NeutralMode.Brake);
     }
 
     public void move(double speed) {

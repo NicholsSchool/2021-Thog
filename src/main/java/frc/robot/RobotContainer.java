@@ -4,9 +4,11 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.util.*;
+import frc.robot.autonomous.*;
 import frc.robot.commands.*;
 import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 public class RobotContainer {
@@ -22,6 +24,11 @@ public class RobotContainer {
     // Genearl
     public static Compressor compressor;
 
+    // Sensors
+    public static LimitSwitch limitSwitch;
+    public static AHRS ahrs;
+    public static NavX navX;
+
     // Subsystems
     public static Climber climber;
     public static DriveTrain driveTrain;
@@ -32,11 +39,6 @@ public class RobotContainer {
     public static Shifter shifter;
     public static Shooter shooter;
 
-    // Sensors
-    public static LimitSwitch limitSwitch;
-    public static AHRS ahrs;
-    public static NavX navX;
-
     // Limelight
     public static LimeLight limelight;
     public static LLUtils llutils;
@@ -46,6 +48,13 @@ public class RobotContainer {
         // Instatiate General Components
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
+        // Instatiate Sensors
+        // Sensors must be instantiated before Subsystems for this robot!
+        limitSwitch = new LimitSwitch();
+        limelight = new LimeLight();
+        llutils = new LLUtils();
+        navX = new NavX(new AHRS(SPI.Port.kMXP));
+        
         // Instatiate Subsystems
         climber = new Climber();
         driveTrain = new DriveTrain();
@@ -55,12 +64,6 @@ public class RobotContainer {
         shooter = new Shooter();
         pistons = new Pistons();
         shifter = new Shifter();
-
-        // Instatiate Sensors
-        limitSwitch = new LimitSwitch();
-        limelight = new LimeLight();
-        llutils = new LLUtils();
-        navX = new NavX(new AHRS(SPI.Port.kMXP));
 
         // Instatiate Controllers
         c0 = new XboxController(0);
@@ -88,6 +91,8 @@ public class RobotContainer {
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         c1.rTrigger.whileHeld(new ShootBall());
         c1.a.whileHeld(new RotateFlapper());
+        c1.start.whileHeld(new GoToSweetSpot(80, 0.4));
+        c1.y.whileHeld(new Climb());
         c1.lBumper.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
         c1.lBumper.whileHeld(new SpinTurntable());
         c1.rBumper.whenPressed(new InstantCommand(() -> turntable.setDirection(CCW)));
@@ -99,8 +104,18 @@ public class RobotContainer {
         // Robot.state.put("V", shooter.getVelocity());
         // Robot.state.put("LL-XA", llutils.getXtoTarget());
         // Robot.state.put("LL-YA", llutils.getYtoTarget());
+        Robot.state.put("Auto-Shoot", Robot.auto_shoot);
         Robot.state.put("LL-Target-Acquired", llutils.getIsTargetFound());
         Robot.state.put("LL-Distance-To-Target", llutils.getDistanceRounded());
         System.out.println(Robot.state);
+    }
+
+    /**
+     * Use this to pass the autonomous command to the main {@link Robot} class.
+     *
+     * @return the command to run in autonomous
+     */
+    public Command getAutonomousCommand() {
+        return AutoPathChooser.getCommand();
     }
 }

@@ -5,6 +5,7 @@ import frc.robot.RobotMap;
 import frc.robot.RobotContainer;
 
 public class BBSpin extends CommandBase {
+
     public double desiredAngle;
     public double speed;
 
@@ -12,7 +13,7 @@ public class BBSpin extends CommandBase {
      * The BBSpin class spins the robot to a desired angle.
      * 
      * @param agl - (double) the angle the robot will rotate to
-     * @param spd - (double) the speed the robot will turn
+     * @param spd - (double) the speed the robot will turn (-1.0 to 1.0)
      **/
     public BBSpin(double agl, double spd) {
         desiredAngle = agl;

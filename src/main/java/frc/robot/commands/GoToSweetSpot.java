@@ -1,12 +1,12 @@
-package frc.robot.autonomous;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotMap;
 import frc.robot.RobotContainer;
 
-public class BBDrive extends CommandBase {
+public class GoToSweetSpot extends CommandBase {
     
-    public double desiredDistance;
+    public double distance;
     public double speed;
 
     /**
@@ -15,20 +15,23 @@ public class BBDrive extends CommandBase {
      * @param dst - (double) the distance the robot will move in inches
      * @param spd - (double) the speed the robot will turn (-1.0 to 1.0)
      **/
-    public BBDrive(double dst, double spd) {
-        desiredDistance = dst / RobotMap.INCHES_PER_TICK;
+    public GoToSweetSpot(double dst, double spd) {
+        distance = dst;
         speed = spd;
         addRequirements(RobotContainer.driveTrain);
     }
 
     @Override
     public void initialize() {
+        // double ll_dst_to_target = RobotContainer.llutils.getDistanceRounded();
+        // double dst = ll_dst_to_target - sweetspot_dst;
+        // desiredDistance = dst / RobotMap.INCHES_PER_TICK;
         RobotContainer.driveTrain.resetEncoders();
     }
 
     @Override
     public void execute() {
-        double delta = desiredDistance - RobotContainer.driveTrain.getLeftEncoderValue();
+        double delta = distance - RobotContainer.driveTrain.getLeftEncoderValue();
         if (delta > 0) {
             RobotContainer.driveTrain.move(speed, speed);
         } else {
@@ -43,7 +46,7 @@ public class BBDrive extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        double delta = desiredDistance - RobotContainer.driveTrain.getLeftEncoderValue();
+        double delta = distance - RobotContainer.driveTrain.getLeftEncoderValue();
         return Math.abs(delta) < RobotMap.AUTO_DRIVE_TOLERANCE;
     }
 }

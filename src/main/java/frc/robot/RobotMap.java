@@ -3,8 +3,8 @@ package frc.robot;
 public class RobotMap {
 
     // Climber
-    public static final int CLIMBER_ID = 49; // SparkMax
-    public static final double CLIMBER_SPEED = 0.85;
+    public static final int CLIMBER_ID = 22; // Talon
+    public static final double CLIMBER_SPEED = 1.0;
 
     // DriveTrain
     public static final int LEFT_MASTER_ID = 33;
@@ -29,7 +29,7 @@ public class RobotMap {
     public static final double INTAKE_SPEED = 0.9;
 
     // Limelight
-    public static final double A1 = 28.90; // angle of limelight lens from ground plane
+    public static final double A1 = 33.33; // angle of limelight lens from ground plane
     public static final double H1 = 20.10; // hight from floor to limelight lens
     public static final double H2 = 98.25; // hight from floor to middle of target
 
@@ -42,7 +42,7 @@ public class RobotMap {
     // Sensor: NavX (DriveTrain Data)
     public static final double METERS_PER_INCH = 0.023;
     public static final double DRIVE_TICKS_PER_REV = 4096;
-    public static final double DRIVE_WHEEL_DIAMETER = 4.0; // inches
+    public static final double DRIVE_WHEEL_DIAMETER = 6.0; // inches
     public static final double INCHES_PER_TICK = Math.PI * DRIVE_WHEEL_DIAMETER / DRIVE_TICKS_PER_REV;
     public static final double METERS_PER_TICK = INCHES_PER_TICK * METERS_PER_INCH;
     public static final int AUTO_TURN_TOLERANCE = 3;
