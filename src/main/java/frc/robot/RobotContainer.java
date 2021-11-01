@@ -49,7 +49,6 @@ public class RobotContainer {
         compressor = new Compressor(RobotMap.PCM_CAN_ID);
 
         // Instatiate Sensors
-        // Sensors must be instantiated before Subsystems for this robot!
         limitSwitch = new LimitSwitch();
         limelight = new LimeLight();
         llutils = new LLUtils();
@@ -81,9 +80,10 @@ public class RobotContainer {
         // Driver Controller
         c0.rTrigger.whenPressed(new InstantCommand(() -> pistons.toggle()));
         c0.rTrigger.whileHeld(new RunIntake());
+        
         c0.rTrigger.whenReleased(new InstantCommand(() -> pistons.toggle()));
-        c0.lTrigger.whenPressed(new InstantCommand(() -> shifter.highGear()));
-        c0.lTrigger.whenReleased(new InstantCommand(() -> shifter.lowGear()));
+        c0.lTrigger.whenPressed(new InstantCommand(() -> shifter.lowGear()));
+        c0.lTrigger.whenReleased(new InstantCommand(() -> shifter.highGear()));
 
         // Operator Controller
         c1.lTrigger.whenPressed(new InstantCommand(() -> driveTrain.disabled()));
@@ -91,7 +91,6 @@ public class RobotContainer {
         c1.lTrigger.whenReleased(new InstantCommand(() -> driveTrain.enabled()));
         c1.rTrigger.whileHeld(new ShootBall());
         c1.a.whileHeld(new RotateFlapper());
-        c1.start.whileHeld(new GoToSweetSpot(80, 0.4));
         c1.y.whileHeld(new Climb());
         c1.lBumper.whenPressed(new InstantCommand(() -> turntable.setDirection(CW)));
         c1.lBumper.whileHeld(new SpinTurntable());
