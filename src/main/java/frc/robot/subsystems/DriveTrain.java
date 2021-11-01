@@ -10,32 +10,32 @@ import frc.robot.RobotMap;
 public class DriveTrain extends SubsystemBase {
 
     private WPI_TalonFX lMaster;
-    private WPI_TalonFX lSlav;
+    private WPI_TalonFX lSlave;
 
     private WPI_TalonFX rMaster;
-    private WPI_TalonFX rSlav;
+    private WPI_TalonFX rSlave;
 
     private DifferentialDrive drive;
     public boolean enabled = true;
 
     public DriveTrain() {
         lMaster = new WPI_TalonFX(RobotMap.LEFT_MASTER_ID);
-        lSlav = new WPI_TalonFX(RobotMap.LEFT_SLAVE_ID);
+        lSlave = new WPI_TalonFX(RobotMap.LEFT_SLAVE_ID);
         rMaster = new WPI_TalonFX(RobotMap.RIGHT_MASTER_ID);
-        rSlav = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
+        rSlave = new WPI_TalonFX(RobotMap.RIGHT_SLAVE_ID);
 
         lMaster.configFactoryDefault();
-        lSlav.configFactoryDefault();
+        lSlave.configFactoryDefault();
         rMaster.configFactoryDefault();
-        rSlav.configFactoryDefault();
+        rSlave.configFactoryDefault();
 
-        lSlav.follow(lMaster);
-        rSlav.follow(rMaster);
+        lSlave.follow(lMaster);
+        rSlave.follow(rMaster);
 
         lMaster.setNeutralMode(NeutralMode.Brake);
-        lSlav.setNeutralMode(NeutralMode.Brake);
+        lSlave.setNeutralMode(NeutralMode.Brake);
         rMaster.setNeutralMode(NeutralMode.Brake);
-        rSlav.setNeutralMode(NeutralMode.Brake);
+        rSlave.setNeutralMode(NeutralMode.Brake);
 
         drive = new DifferentialDrive(
             new SpeedControllerGroup(lMaster), 
@@ -52,10 +52,36 @@ public class DriveTrain extends SubsystemBase {
         rMaster.stopMotor();
     }
 
+    // Resets all encoder values
+    public void resetEncoders() {
+        lMaster.setSelectedSensorPosition(0);
+        rMaster.setSelectedSensorPosition(0);
+    }
+
+    /**
+     * returns value of left encoder
+     * 
+     * @return the value of the left encoder
+     */
+    public double getLeftEncoderValue() {
+        return lMaster.getSelectedSensorPosition();
+    }
+
+    /**
+     * returns value of right encoder
+     * 
+     * @return the value of the right encoder
+     */
+    public double getRightEncoderValue() {
+        return rMaster.getSelectedSensorPosition();
+    }
+
+    // Enable driver control during TeleOp.
     public void enabled() {
         enabled = true;
     }
     
+    // Disable driver control during TeleOp.
     public void disabled() {
         enabled = false;
     }

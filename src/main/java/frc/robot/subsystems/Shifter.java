@@ -10,14 +10,18 @@ public class Shifter extends SubsystemBase {
 
     public Shifter() {
         shifter = new Solenoid(RobotMap.PCM_CAN_ID, RobotMap.SHIFTER_SOLENOID_CHANNEL);
-        shifter.set(true); // Assuming low gear by default is true
+        // Assuming high gear by default is true.
+        shifter.set(true);
     }
 
     public void highGear() {
         shifter.set(false);
+        // Slowed down high gear because driver at Ruckus reported issues controling robot.
+        RobotMap.GOVERNOR = RobotMap.GOVERNOR_SLOW;
     }
 
     public void lowGear() {
         shifter.set(true);
+        RobotMap.GOVERNOR = RobotMap.GOVERNOR_FAST;
     }
 }
