@@ -13,7 +13,7 @@ public class RobotMap {
     public static final int RIGHT_SLAVE_ID = 30;
     public static final int SHIFTER_SOLENOID_CHANNEL = 1;
     public static final double GOVERNOR_FAST = 1.0;
-    public static final double GOVERNOR_SLOW = 0.8;
+    public static final double GOVERNOR_SLOW = 0.7;
     public static double GOVERNOR = GOVERNOR_SLOW;
 
     // Flapper
@@ -60,9 +60,9 @@ public class RobotMap {
 
     // Turntable
     public static final int TURNTABLE_ID = 20;
-    public static final double TURNTABLE_SPEED = 0.3;
+    public static final double TURNTABLE_SPEED = 0.25;
     public static final double CLOCKWISE = 1.0;
-    public static final double COUNTER_CLOCKWISE = -1.0;
+    public static final double COUNTER_CLOCKWISE = -1.00;
 
     // Hood SparkMax: CAN #42
     // Elevator Left: CAN #21

@@ -17,19 +17,18 @@ public class AutoPathChooser {
     public static CommandBase getCommand() {
         
         if(Robot.auto_shoot) {
-                return driveFirstThenShoot();
+                return limitSwitchEngaged();
             } else {
-                return delayThenMoveForward();
+                return limitSwitchDisengaged();
         }
     }
 
-    private static CommandBase driveFirstThenShoot() {
-        return new BBDrive(BB_DRIVE_DISTANCE, BB_DRIVE_SPEED).withTimeout(5)
-        .andThen(new AlignToTarget().withTimeout(2))
-        .andThen(new ShootBall().withTimeout(5));
+    private static CommandBase limitSwitchEngaged() {
+        return new ShootBall().withTimeout(5)
+        .andThen(new BBDrive(300, 0.5));
     }
 
-    private static CommandBase delayThenMoveForward() {
+    private static CommandBase limitSwitchDisengaged() {
         return new DoNothing().withTimeout(AUTO_DELAY)
         .andThen(new BBDrive(BB_DRIVE_DISTANCE, BB_DRIVE_SPEED).withTimeout(10));
     }
